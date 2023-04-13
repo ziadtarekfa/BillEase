@@ -1,52 +1,32 @@
-.sign_in span {
-    color: #4D47C3;
-}
-
-header {
-    padding-left: 20px;
-}
-
-header h2 {
-    font-weight: 600;
-}
-
-.sign-in-container {
+.sign-up {
     display: flex;
-    justify-content: space-between;
+
 }
 
-.intro_text {
-    margin: 10% 0 0 10%;
-}
-
-.intro_text h1 {
-    font-weight: 600;
-}
-
-.intro_text h1 span {
-    font-weight: 500;
-}
-
-.intro_text a {
-    font-weight: 600;
+.sign-up span {
     color: #4D47C3;
+    font-weight: 600;
 }
 
-.sign_in .woman-sign-in {
+.image-container img {
+    height: 100vh;
+}
 
-    width: 250px;
-    position: absolute;
-    left: 30%;
-    top: 40%;
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 6%;
+
 }
 
 form {
     display: flex;
     flex-direction: column;
-    height: 440px;
-    width: 300px;
+    height: 80%;
+    width: 50%;
     justify-content: space-between;
-    margin-right: 10%;
     margin-top: 4%;
 }
 
