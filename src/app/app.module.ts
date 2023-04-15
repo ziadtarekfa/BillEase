@@ -21,6 +21,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { ElectricityComponent } from "./features/electricity/electricity.component";
 import { WaterComponent } from "./features/water/water.component";
 import { TelephoneComponent } from "./features/telephone/telephone.component";
+import { PageComponent } from './components/layout/page/page.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { TelephoneComponent } from "./features/telephone/telephone.component";
         ElectricityComponent,
         WaterComponent,
         TelephoneComponent,
+        PageComponent,
     ],
     imports: [
         BrowserModule,

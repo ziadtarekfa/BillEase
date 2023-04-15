@@ -1,0 +1,12 @@
+<div class="content">
+  <header [class]="isStuck ? 'stuck' : ''">
+    <div class="header-content">
+      <h1 class="title">{{title}}</h1>
+      <p class="subtitle" *ngIf="subtitle!==undefined">{{subtitle}}</p>
+    </div>
+    <div  class="divider"></div>
+  </header>
+  <main>
+    <ng-content/>
+  </main>
+</div>

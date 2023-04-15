@@ -1,0 +1,68 @@
+.content > header, .content > main {
+  padding-inline: 32px;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+.content > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > header {
+  margin-bottom: 8px;
+  position: sticky;
+  top: 0;
+  transition: all .2s ease-in-out;
+}
+
+.header-content {
+  transition: all .2s ease-in-out;
+  padding-block: 32px 24px;
+  width: 100%;
+
+}
+
+.stuck .header-content {
+  padding-block: 18px 18px !important;
+}
+
+.title, .subtitle {
+  transition: all .2s ease-in-out;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 1px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-info);
+  font-family: inherit;
+  margin: 0;
+}
+
+.stuck .title {
+  font-size: 24px !important;
+
+}
+
+.stuck .subtitle {
+  display: none;
+}
+
+.divider {
+  width: 0;
+  height: 0;
+  transition: height .4s ease-in-out, width .8s ease-in-out;
+  background: radial-gradient(rgba(217, 210, 210, 0.76) 0%, rgba(110, 110, 110, 0) 90%);
+}
+
+.stuck .divider {
+  width: 100%;
+  height: 1px;
+}
