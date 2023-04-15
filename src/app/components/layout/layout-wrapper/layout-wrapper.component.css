@@ -1,0 +1,19 @@
+.layout {
+
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--dimension-nav-width);
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.content {
+  margin-inline-start: var(--dimension-nav-width);
+}
