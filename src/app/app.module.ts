@@ -14,13 +14,13 @@ import { NavItemComponent } from "./components/layout/navbar/nav-item/nav-item.c
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { NgOptimizedImage } from "@angular/common";
 import { MatInputModule } from "@angular/material/input";
-import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { environment } from "../environments/environment";
-import { provideAuth, getAuth } from "@angular/fire/auth";
 import { provideDatabase, getDatabase } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from "@angular/fire/compat";
-import { AuthService } from "./auth.service";
+import { ElectricityComponent } from "./features/electricity/electricity.component";
+import { WaterComponent } from "./features/water/water.component";
+import { TelephoneComponent } from "./features/telephone/telephone.component";
 
 @NgModule({
     declarations: [
@@ -31,13 +31,20 @@ import { AuthService } from "./auth.service";
         NavbarComponent,
         LayoutWrapperComponent,
         NavItemComponent,
+        ElectricityComponent,
+        WaterComponent,
+        TelephoneComponent,
     ],
     imports: [
         BrowserModule,
         RouterModule.forRoot([
-            { path: "", component: DashboardComponent },
             { path: "signin", component: SignInComponent },
             { path: "signup", component: SignUpComponent },
+            { path: "water", component: WaterComponent },
+            { path: "electricity", component: ElectricityComponent },
+            { path: "telephone", component: TelephoneComponent },
+          { path: "", component: DashboardComponent },
+
         ]),
         FormsModule,
         ReactiveFormsModule,

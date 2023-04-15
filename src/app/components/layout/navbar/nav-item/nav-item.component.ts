@@ -3,10 +3,12 @@ import { Component, Input } from "@angular/core";
 @Component({
     selector: "[app-nav-item]",
     template: `
-        <a class="nav-item" [routerLink]="route.path" routerLinkActive="active">
-          <img [src]="route.icon"  [alt]="route.name + ' route'"/>
+        <a class="nav-item" [routerLink]="route.path" routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+        >
+            <img [src]="route.icon" [alt]="route.name + ' route'"/>
 
-          <span>{{ route.name }}</span>
+            <span>{{ route.name }}</span>
         </a>
     `,
     styleUrls: ["../navbar.component.css"],
