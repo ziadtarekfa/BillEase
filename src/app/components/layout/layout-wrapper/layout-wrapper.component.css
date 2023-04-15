@@ -17,6 +17,7 @@
 
 .content {
   margin-inline-start: var(--dimension-nav-width);
+  transition: all 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 600px) {
