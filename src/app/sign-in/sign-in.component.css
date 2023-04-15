@@ -52,12 +52,6 @@ form {
     margin-top: 10%;
 }
 
-.email-container,
-.password-container {
-    display: flex;
-    flex-direction: column;
-}
-
 form span {
     color: red;
     margin-top: 5px;
@@ -88,6 +82,8 @@ form button {
     border-radius: 5px;
     color: white;
     height: 40px;
+    box-shadow: 0px 4px 61px rgba(77, 71, 195, 0.4);
+
 }
 
 form button:disabled,

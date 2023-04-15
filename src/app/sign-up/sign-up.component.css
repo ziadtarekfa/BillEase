@@ -1,124 +1,126 @@
 header {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 header h2 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 header span {
-    color: #4D47C3;
+  color: #4D47C3;
 }
 
-.sign-in-container {
-    display: flex;
-    justify-content: space-between;
+.sign-up-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .intro_text {
-    margin: 10% 0 0 10%;
+  margin: 10% 0 0 10%;
 }
 
 .intro_text h1 {
-    font-weight: 600;
+  font-weight: 600;
 
 }
 
 .intro_text span {
-    color: #4D47C3;
-    font-weight: 500;
+  color: #4D47C3;
+  font-weight: 500;
 }
 
 .intro_text a {
-    font-weight: 600;
-    color: #4D47C3;
+  font-weight: 600;
+  color: #4D47C3;
 }
 
-.sign_in .woman-sign-in {
+/* .image-container img {
+  height: 100vh;
+} */
 
-    width: 250px;
-    position: absolute;
-    left: 30%;
-    top: 40%;
+.sign_up .woman-sign-up {
+  width: 250px;
+  position: absolute;
+  left: 30%;
+  top: 40%;
 }
+
+
 
 form {
-    display: flex;
-    flex-direction: column;
-    height: 550px ;
-    width: 300px;
-    justify-content: space-between;
-    margin-right: 10%;
-    margin-top: 5%;
-}
-
-.flex_box_column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  width: 30%;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-top: 5%;
 }
 
 form span {
-    color: red;
-    margin-top: 5px;
+  color: red;
+  margin-top: 5px;
 }
 
 form h2 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 form input {
-    background-color: #F0EFFF;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
+  background-color: #F0EFFF;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 form input::placeholder {
-    color: #A7A3FF;
+  color: #A7A3FF;
 }
 
 input.ng-touched.ng-invalid {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 form button {
-    background-color: #4D47C3;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    height: 40px;
+  background-color: #4D47C3;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 40px;
+  box-shadow: 0px 4px 61px rgba(77, 71, 195, 0.4);
+
 }
 
 form button:disabled,
 button[disabled] {
-    background-color: #c1c1cb;
-    opacity: 0.6;
+  background-color: #c1c1cb;
+  opacity: 0.6;
 }
 
 .error-border {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 form button:disabled:hover {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 form p {
-    color: #B5B5B5;
-    align-self: center;
+  color: #B5B5B5;
+  align-self: center;
 }
 
-.social-media-login-container {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-    margin: 0 auto 0 auto;
+.social-media-signup-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 0 auto 0 auto;
 }
 
-.social-media-login-container img {
-    width: 30px;
+.social-media-signup-container img {
+  width: 30px;
 }
 
-.social-media-login-container img:hover {
-    cursor: pointer;
+.social-media-signup-container img:hover {
+  cursor: pointer;
 }

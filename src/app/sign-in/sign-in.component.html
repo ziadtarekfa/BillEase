@@ -15,13 +15,13 @@
         </div>
         <form [formGroup]="myForm" (ngSubmit)="signIn()">
             <h2>Sign in</h2>
-            <div class="email-container">
+            <div class="flexbox_column">
                 <input type="text" placeholder="Email" formControlName="email" />
                 <span *ngIf="myForm.controls['email'].hasError('required') && myForm.controls['email'].touched">Email is
                     required</span>
                 <span *ngIf="myForm.controls['email'].hasError('pattern')">Email is invalid</span>
             </div>
-            <div class="password-container">
+            <div class="flexbox_column">
                 <input id="password_sign_in" type="password" placeholder="Password" formControlName="password" />
                 <span
                     *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].touched">Password
