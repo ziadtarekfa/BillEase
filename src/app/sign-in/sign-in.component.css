@@ -1,13 +1,13 @@
-.sign_in span {
-    color: #4D47C3;
-}
-
 header {
     padding-left: 20px;
 }
 
 header h2 {
     font-weight: 600;
+}
+
+header span {
+    color: #4D47C3;
 }
 
 .sign-in-container {
@@ -21,9 +21,11 @@ header h2 {
 
 .intro_text h1 {
     font-weight: 600;
+
 }
 
-.intro_text h1 span {
+.intro_text span {
+    color: #4D47C3;
     font-weight: 500;
 }
 
@@ -50,6 +52,17 @@ form {
     margin-top: 10%;
 }
 
+.email-container,
+.password-container {
+    display: flex;
+    flex-direction: column;
+}
+
+form span {
+    color: red;
+    margin-top: 5px;
+}
+
 form h2 {
     font-weight: 500;
 }
@@ -65,12 +78,30 @@ form input::placeholder {
     color: #A7A3FF;
 }
 
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
 form button {
     background-color: #4D47C3;
     border: none;
     border-radius: 5px;
     color: white;
     height: 40px;
+}
+
+form button:disabled,
+button[disabled] {
+    background-color: #c1c1cb;
+    opacity: 0.6;
+}
+
+.error-border {
+    border: 1px solid red;
+}
+
+form button:disabled:hover {
+    cursor: not-allowed;
 }
 
 form p {
