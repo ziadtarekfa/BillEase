@@ -1,61 +1,159 @@
-<app-page title="Dashboard" subtitle="Information about your current plans and usages">
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
-  <p>dashboard works!</p>
+<app-page title="Billings" subtitle="Information about your current plans and usages">
+  <div class="cards">
+    <div class="electricity_card">
+      <div class="icon_container electricity_icon_container">
+        <img src="../../assets/icons/lamp.svg" alt="lamp" />
+      </div>
+      <div class="content electricity_content">
+        <h5>Electricity Rate</h5>
+        <p>0.027 U.S per kWh</p>
+      </div>
+    </div>
+    <hr />
+
+    <div class="water_card">
+      <div class="icon_container water_icon_container">
+        <img src="../../assets/icons/water.svg" alt="water" />
+      </div>
+      <div class="content water_content">
+        <h5>Water Rate</h5>
+        <p>0.27 U.S per liter</p>
+      </div>
+    </div>
+    <hr />
+    <div class="telephone_card">
+      <div class="icon_container telephone_icon_container">
+        <img src="../../assets/icons/telephone.svg" alt="telephone" />
+      </div>
+      <div class="content telephone_content">
+        <h5>Telephone Rate</h5>
+        <p>2.0 U.S per hour</p>
+      </div>
+    </div>
+  </div>
+  <div class="filter_container">
+    <button class="filter_btn">
+      <img src="../../assets/icons/filter.svg" alt="filter" />
+    </button>
+    <input type="text" placeholder="Search" />
+  </div>
+  <table>
+    <thead>
+      <th>#</th>
+      <th>BILL ID</th>
+      <th>ADDRESS</th>
+      <th>STATUS</th>
+      <th>TOTAL UNITS</th>
+      <th>TYPE</th>
+      <th>ISSUED DATE</th>
+      <th>DEADLINE DATE</th>
+      <th>TOTAL AMOUNT</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr style="background-color: #F4F2FE;">
+        <td>1</td>
+        <td class="bill_num">5684236526</td>
+        <td>Fifth Settlement</td>
+        <td>
+          <span class="due">
+            Due
+          </span>
+
+        </td>
+        <td>200kW</td>
+        <td>Electricity</td>
+        <td>21/6/2021</td>
+        <td>30/6/2021</td>
+        <td>212 U.S</td>
+        <td>
+          <span class="pay-now">Pay now</span>
+        </td>
+      </tr>
+      <tr style="background-color: white;">
+        <td>2</td>
+        <td class="bill_num">5684236526</td>
+        <td>Fifth Settlement</td>
+
+        <td>
+          <span class="paid">
+            Paid
+          </span>
+        </td>
+        <td>200kW</td>
+        <td>Electricity</td>
+        <td>21/6/2021</td>
+        <td>30/6/2021</td>
+        <td>212 U.S</td>
+        <td>
+          <span class="inactive">Inactive</span>
+        </td>
+      </tr>
+      <tr style="background-color: #F4F2FE;">
+        <td>3</td>
+        <td class="bill_num">5684236526</td>
+        <td>Fifth Settlement</td>
+        <td>
+          <span class="paid">
+            Paid
+          </span>
+        </td>
+        <td>200kW</td>
+        <td>Electricity</td>
+        <td>21/6/2021</td>
+        <td>30/6/2021</td>
+        <td>212 U.S</td>
+        <td>
+          <span class="inactive">Inactive</span>
+        </td>
+      </tr>
+      <tr style="background-color: white;">
+        <td>4</td>
+        <td class="bill_num">5684236526</td>
+        <td>Fifth Settlement</td>
+        <td>
+          <span class="paid">
+            Paid
+          </span>
+        </td>
+        <td>200kW</td>
+        <td>Electricity</td>
+        <td>21/6/2021</td>
+        <td>30/6/2021</td>
+        <td>212 U.S</td>
+        <td>
+          <span class="inactive">Inactive</span>
+        </td>
+      </tr>
+      <tr style="background-color: #F4F2FE;">
+        <td>5</td>
+        <td class="bill_num">5684236526</td>
+        <td>Fifth Settlement</td>
+        <td>
+          <span class="paid">
+            Paid
+          </span>
+        </td>
+        <td>200kW</td>
+        <td>Electricity</td>
+        <td>21/6/2021</td>
+        <td>30/6/2021</td>
+        <td>212 U.S</td>
+        <td>
+          <span class="inactive">Inactive</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <p>Rows per page: 5</p>
+    <button>
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <span>1/10</span>
+    <button>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
 
 </app-page>

@@ -5,6 +5,14 @@
   padding-inline: 24px;
 }
 
+.logo {
+  margin-top: 20px;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 22px;
+}
 
 .nav ul {
   list-style: none;
@@ -48,11 +56,13 @@
 
 }
 
-.nav-item.active img, .nav-item:active img {
+.nav-item.active img,
+.nav-item:active img {
   filter: grayscale(0%);
 }
 
-.nav-item.active, .nav-item:active {
+.nav-item.active,
+.nav-item:active {
   background: var(--color-primary-container);
   color: var(--color-on-primary-container);
 }

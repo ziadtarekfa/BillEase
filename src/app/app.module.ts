@@ -11,9 +11,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavbarComponent } from "./components/layout/navbar/navbar.component";
 import { LayoutWrapperComponent } from "./components/layout/layout-wrapper/layout-wrapper.component";
 import { NavItemComponent } from "./components/layout/navbar/nav-item/nav-item.component";
-// import { AngularSvgIconModule } from "angular-svg-icon";
+import { AngularSvgIconModule } from "angular-svg-icon";
 import { NgOptimizedImage } from "@angular/common";
-import { MatInputModule } from "@angular/material/input";
+
 import { environment } from "../environments/environment";
 import { provideDatabase, getDatabase } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
@@ -22,6 +22,7 @@ import { ElectricityComponent } from "./features/electricity/electricity.compone
 import { WaterComponent } from "./features/water/water.component";
 import { TelephoneComponent } from "./features/telephone/telephone.component";
 import { PageComponent } from './components/layout/page/page.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,8 @@ import { PageComponent } from './components/layout/page/page.component';
         WaterComponent,
         TelephoneComponent,
         PageComponent,
+
+
     ],
     imports: [
         BrowserModule,
@@ -50,13 +53,13 @@ import { PageComponent } from './components/layout/page/page.component';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MatInputModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
+        MatIconModule,
         // provideFirebaseApp(() => initializeApp(environment.firebase)),
         // provideAuth(() => getAuth()),
         provideDatabase(() => getDatabase()),
-        // AngularSvgIconModule.forRoot(),
+        AngularSvgIconModule.forRoot(),
         NgOptimizedImage
     ],
     providers: [],

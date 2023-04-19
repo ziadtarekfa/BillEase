@@ -23,9 +23,13 @@ body {
 }
 
 body {
-  background-color: #F8F9FC;
-  font-family: 'Poppins', serif !important;
+  background-color: #ECECEE;
+  font-family: 'Poppins', sans-serif !important;
   margin: 0;
+}
+
+h3 {
+  margin: 0
 }
 
 .flexbox_column {
