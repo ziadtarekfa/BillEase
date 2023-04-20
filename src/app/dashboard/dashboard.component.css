@@ -19,21 +19,6 @@
     margin-right: 40px;
 }
 
-h5 {
-    color: #92959E;
-    font-weight: 600;
-}
-
-.content {
-    margin-left: 15px;
-}
-
-.icon_container {
-    display: flex;
-    padding: 10px;
-    border-radius: 10px;
-}
-
 .water_icon_container {
     background-color: #E3F5FF;
 }

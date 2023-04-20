@@ -24,6 +24,7 @@ import { TelephoneComponent } from "./features/telephone/telephone.component";
 import { PageComponent } from './components/layout/page/page.component';
 import { MatIconModule } from '@angular/material/icon';
 import { BillTableComponent } from './bill-table/bill-table.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { BillTableComponent } from './bill-table/bill-table.component';
         TelephoneComponent,
         PageComponent,
         BillTableComponent,
+        CardComponent,
 
 
     ],

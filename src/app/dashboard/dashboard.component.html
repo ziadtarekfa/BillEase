@@ -1,35 +1,15 @@
 <app-page title="Billings" subtitle="Information about your current plans and usages">
   <div class="cards">
-    <div class="electricity_card">
-      <div class="icon_container electricity_icon_container">
-        <img src="../../assets/icons/lamp.svg" alt="lamp" />
-      </div>
-      <div class="content electricity_content">
-        <h5>Electricity Rate</h5>
-        <p>0.027 U.S per kWh</p>
-      </div>
-    </div>
+    <app-card [title]='"Electricity Rate"' [unitsUsed]="'200 kW per hour'" [image]='"../../assets/icons/lamp.svg"'
+      [imageBackground]='"#FFF2E9"'></app-card>
     <hr />
 
-    <div class="water_card">
-      <div class="icon_container water_icon_container">
-        <img src="../../assets/icons/water.svg" alt="water" />
-      </div>
-      <div class="content water_content">
-        <h5>Water Rate</h5>
-        <p>0.27 U.S per liter</p>
-      </div>
-    </div>
+    <app-card [title]='"Water Rate"' [unitsUsed]="'2.0 liters per hours'" [image]='"../../assets/icons/water.svg"'
+      [imageBackground]='"#E3F5FF"'></app-card>
+
     <hr />
-    <div class="telephone_card">
-      <div class="icon_container telephone_icon_container">
-        <img src="../../assets/icons/telephone.svg" alt="telephone" />
-      </div>
-      <div class="content telephone_content">
-        <h5>Telephone Rate</h5>
-        <p>2.0 U.S per hour</p>
-      </div>
-    </div>
+    <app-card [title]='"Telephone Rate"' [unitsUsed]="'2.0 U.S per hour'" [image]='"../../assets/icons/telephone.svg"'
+      [imageBackground]='"#FFEBEF"'></app-card>
   </div>
   <div class="filter_container">
     <button class="filter_btn">

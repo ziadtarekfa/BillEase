@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+}
+
+.icon_container {
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card_content {
+    margin-left: 15px;
+}
+
+h5 {
+    color: #92959E;
+    font-weight: 600;
+}
