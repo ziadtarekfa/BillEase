@@ -23,6 +23,7 @@ import { WaterComponent } from "./features/water/water.component";
 import { TelephoneComponent } from "./features/telephone/telephone.component";
 import { PageComponent } from './components/layout/page/page.component';
 import { MatIconModule } from '@angular/material/icon';
+import { BillTableComponent } from './bill-table/bill-table.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
         WaterComponent,
         TelephoneComponent,
         PageComponent,
+        BillTableComponent,
 
 
     ],
