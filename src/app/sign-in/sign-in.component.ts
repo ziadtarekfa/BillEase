@@ -21,15 +21,10 @@ export class SignInComponent {
       ]],
       password: ['', [
         Validators.required,
-        // strong password pattern
-        // Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}")
       ]]
     })
   }
 
-  // ngOnInit() {
-  //   this.myForm.valueChanges.subscribe(console.log);
-  // }
   private getEmail() {
     return this.myForm.get('email')?.value;
   }
@@ -37,15 +32,9 @@ export class SignInComponent {
     return this.myForm.get('password')?.value;
   }
   signIn() {
-    // console.log(this.myForm.get('email'));
-    console.log("Submitted Form");
     const email = this.getEmail();
     const password = this.getPassword();
-
     this.auth.signIn(email, password);
-
-    // console.log(email + password);
-    // console.log(this.myForm);
   }
 
 

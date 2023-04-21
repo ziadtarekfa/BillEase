@@ -45,8 +45,10 @@ import { PaginationComponent } from './pagination/pagination.component';
         PaginationComponent,
 
 
+
     ],
     imports: [
+
         BrowserModule,
         RouterModule.forRoot([
             { path: "signin", component: SignInComponent },
@@ -66,7 +68,9 @@ import { PaginationComponent } from './pagination/pagination.component';
         // provideAuth(() => getAuth()),
         provideDatabase(() => getDatabase()),
         AngularSvgIconModule.forRoot(),
-        NgOptimizedImage
+        NgOptimizedImage,
+
+
     ],
     providers: [],
     bootstrap: [AppComponent],

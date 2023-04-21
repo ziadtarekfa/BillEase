@@ -20,30 +20,19 @@ export class SignUpComponent {
         Validators.required,
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
       ]],
-      phoneNumber: ['', [
+      phoneNo: ['', [
         Validators.required,
       ]],
       password: ['', [
         Validators.required,
         Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}")
       ]],
-      confirmPassword: ['', [
-        Validators.required,
-      ]],
 
     })
   }
 
-  // ngOnInit() {
-  //   this.myForm.valueChanges.subscribe(console.log);
-  // }
-  passwordConfirming(): boolean {
-    if (this.getPassword() !== this.getConfirmedPassword()) {
-      return true;
-    }
-    else {
-      return false;
-    }
+  private getName() {
+    return this.myForm.get('name')?.value;
   }
   private getEmail() {
     return this.myForm.get('email')?.value;
@@ -51,18 +40,16 @@ export class SignUpComponent {
   private getPassword() {
     return this.myForm.get('password')?.value;
   }
-  private getConfirmedPassword() {
-    return this.myForm.get('confirmPassword')?.value;
+  private getPhoneNo() {
+    return this.myForm.get('phoneNo')?.value;
   }
-  signIn() {
-    // console.log(this.myForm.get('email'));
-    console.log("Submitted Form");
-    const email = this.getEmail();
+  signUp() {
+    const name = this.getName();
     const password = this.getPassword();
+    const email = this.getEmail();
+    const phoneNo = this.getPhoneNo();
 
-    // this.auth.signIn(email, password);
+    this.auth.signUp(email, password);
 
-    // console.log(email + password);
-    console.log(this.myForm);
   }
 }

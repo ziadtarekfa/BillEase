@@ -10,7 +10,7 @@ header span {
   color: #4D47C3;
 }
 
-.sign-up-container {
+.sign_up_container {
   display: flex;
   justify-content: space-between;
 }
@@ -34,27 +34,22 @@ header span {
   color: #4D47C3;
 }
 
-/* .image-container img {
-  height: 100vh;
-} */
-
 .sign_up .woman-sign-up {
+
   width: 250px;
   position: absolute;
   left: 30%;
   top: 40%;
 }
 
-
-
 form {
   display: flex;
   flex-direction: column;
-  height: 560px;
-  width: 30%;
+  height: 440px;
+  width: 300px;
   justify-content: space-between;
-  margin-right: 5%;
-  margin-top: 5%;
+  margin-right: 10%;
+  margin-top: 10%;
 }
 
 form span {
@@ -110,17 +105,17 @@ form p {
   align-self: center;
 }
 
-.social-media-signup-container {
+.social_media_signup_container {
   display: flex;
   justify-content: space-evenly;
   width: 50%;
   margin: 0 auto 0 auto;
 }
 
-.social-media-signup-container img {
+.social_media_signup_container img {
   width: 30px;
 }
 
-.social-media-signup-container img:hover {
+.social_media_signup_container img:hover {
   cursor: pointer;
 }

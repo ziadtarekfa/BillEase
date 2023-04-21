@@ -16,4 +16,12 @@ export class AuthService {
       alert(err.message);
     });
   }
+  signUp(email: string, password: string) {
+    this.fireAuth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
+      localStorage.setItem('token', 'true');
+      this.router.navigate(['']);
+    }).catch((err) => {
+      alert(err.message);
+    })
+  }
 }
