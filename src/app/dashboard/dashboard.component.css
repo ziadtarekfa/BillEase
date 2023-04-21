@@ -15,22 +15,6 @@
     border: 1px solid #ECECEE;
 }
 
-.telephone_card {
-    margin-right: 40px;
-}
-
-.water_icon_container {
-    background-color: #E3F5FF;
-}
-
-.electricity_icon_container {
-    background-color: #FFF2E9;
-}
-
-.telephone_icon_container {
-    background-color: #FFEBEF;
-}
-
 .filter_container {
     display: flex;
     margin-top: 50px;
@@ -71,35 +55,4 @@
     color: #A1A9B8;
     font-weight: 500;
     font-size: 14px;
-
-}
-
-
-.pagination {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    align-items: center;
-}
-
-.pagination p {
-    margin-right: 20px;
-    color: #687182;
-    font-size: 12px;
-}
-
-.pagination button {
-    width: 34px;
-    height: 30px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #D1D3D9;
-
-}
-
-.pagination span {
-    margin: 0 10px 0 10px;
-    font-size: 12px;
 }

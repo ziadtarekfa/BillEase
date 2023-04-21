@@ -25,6 +25,7 @@ import { PageComponent } from './components/layout/page/page.component';
 import { MatIconModule } from '@angular/material/icon';
 import { BillTableComponent } from './bill-table/bill-table.component';
 import { CardComponent } from './card/card.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
     declarations: [
@@ -41,6 +42,7 @@ import { CardComponent } from './card/card.component';
         PageComponent,
         BillTableComponent,
         CardComponent,
+        PaginationComponent,
 
 
     ],
