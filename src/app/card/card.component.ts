@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
   @Input('title') title = '';
   @Input('unitsUsed') unitsUsed = '';
-  @Input('image') image = '';
-  @Input('imageBackground') imageBackground = ''
+  @Input('icon') icon = '';
+  @Input('iconBackground') iconBackground = ''
 }
