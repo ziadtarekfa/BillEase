@@ -15,9 +15,10 @@ import { AngularSvgIconModule } from "angular-svg-icon";
 import { NgOptimizedImage } from "@angular/common";
 
 import { environment } from "../environments/environment";
-import { provideDatabase, getDatabase } from "@angular/fire/database";
+// import { provideDatabase, getDatabase } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { ElectricityComponent } from "./features/electricity/electricity.component";
 import { WaterComponent } from "./features/water/water.component";
 import { TelephoneComponent } from "./features/telephone/telephone.component";
@@ -63,10 +64,11 @@ import { PaginationComponent } from './pagination/pagination.component';
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAuthModule,
+        AngularFireDatabaseModule,
         MatIconModule,
         // provideFirebaseApp(() => initializeApp(environment.firebase)),
         // provideAuth(() => getAuth()),
-        provideDatabase(() => getDatabase()),
+        // provideDatabase(() => getDatabase()),
         AngularSvgIconModule.forRoot(),
         NgOptimizedImage,
 

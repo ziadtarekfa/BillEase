@@ -13,7 +13,7 @@ export class SignInComponent {
   myForm: FormGroup;
   auth: AuthService;
   constructor(private fb: FormBuilder, private authService: AuthService) {
-    this.auth = authService;
+    this.auth = this.authService;
     this.myForm = this.fb.group({
       email: ['', [
         Validators.required,
