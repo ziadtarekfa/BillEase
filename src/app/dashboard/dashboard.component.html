@@ -17,7 +17,9 @@
     </button>
     <input type="text" placeholder="Search" />
   </div>
-  <app-bill-table />
+  <app-bill-table [bills]="billsList">
+
+  </app-bill-table>
   <app-pagination />
 
 </app-page>

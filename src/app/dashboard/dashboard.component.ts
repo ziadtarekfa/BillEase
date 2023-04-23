@@ -1,26 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DatabaseService } from '../services/database.service';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   db: DatabaseService;
+  billsList: any;
+
   constructor(private database: DatabaseService) {
     this.db = this.database;
   }
 
   ngOnInit() {
-    console.log("Started ngInit");
-    this.db.getBills().subscribe((user) => {
-      console.log(user);
-    });
-
+    this.db.getBills()
+      .subscribe((data) => {
+        this.billsList = data;
+      });
   }
-
-  // async fun() {
-  //   await this.db.getBills();
-  // }
 }
