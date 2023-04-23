@@ -1,5 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import Bill from '../Bill';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bill-table',
