@@ -46,6 +46,12 @@ td .pay-now {
     border-radius: 10px;
 }
 
+td .pay-now:hover {
+    background-color: #2264E5;
+    color: white;
+    cursor: pointer;
+}
+
 td .inactive {
     background-color: #E9EDF5;
     color: #5A6376;
