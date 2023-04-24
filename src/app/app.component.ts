@@ -16,7 +16,7 @@ export class AppComponent {
 
     disableLayout = false;
     readonly disableLayoutRoutes = ["/signin", "/signup"];
-  navRoutes: Array<NavRoute> = [];
+    navRoutes: Array<NavRoute> = [];
     userType?: UserType;
 
     constructor(
@@ -51,6 +51,14 @@ export class AppComponent {
             this.disableLayoutRoutes.includes(router.url)
         ) {
             router.navigate(["/"]);
+        } else if (
+            this.userType !== UserType.UnAuthenticated &&
+            router.url === "/"
+        ) {
+            if (this.userType === UserType.Admin)
+                router.navigate(["/admin/dashboard"]);
+            else if (this.userType === UserType.Customer)
+                router.navigate(["/dashboard"]);
         }
     }
 
@@ -60,4 +68,6 @@ export class AppComponent {
 
         this.navRoutes = environment.navRoutes[userType];
     }
+
+  protected readonly UserType = UserType;
 }

@@ -27,6 +27,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { BillTableComponent } from "./bill-table/bill-table.component";
 import { CardComponent } from "./card/card.component";
 import { PaginationComponent } from "./pagination/pagination.component";
+import { DashboardRouterComponent } from './features/auth/dashboard-router/dashboard-router.component';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { PaginationComponent } from "./pagination/pagination.component";
         BillTableComponent,
         CardComponent,
         PaginationComponent,
+        DashboardRouterComponent,
     ],
     imports: [
         BrowserModule,
@@ -54,7 +56,7 @@ import { PaginationComponent } from "./pagination/pagination.component";
             { path: "electricity", component: ElectricityComponent },
             { path: "telephone", component: TelephoneComponent },
             { path: "dashboard", component: DashboardComponent },
-            { path: "", component: DashboardComponent },
+            { path: "", component: DashboardRouterComponent },
         ]),
         FormsModule,
         ReactiveFormsModule,
@@ -63,9 +65,6 @@ import { PaginationComponent } from "./pagination/pagination.component";
         AngularFireAuthModule,
         AngularFireDatabaseModule,
         MatIconModule,
-        // provideFirebaseApp(() => initializeApp(environment.firebase)),
-        // provideAuth(() => getAuth()),
-        // provideDatabase(() => getDatabase()),
         AngularSvgIconModule.forRoot(),
         NgOptimizedImage,
     ],

@@ -1,6 +1,12 @@
-<app-layout-wrapper [navRoutes]="navRoutes" *ngIf="!disableLayout; else noLayout">
-  <router-outlet/>
-</app-layout-wrapper>
-<ng-template #noLayout>
-  <router-outlet/>
-</ng-template>
+<div [ngSwitch]="userType">
+  <div *ngSwitchCase="undefined">
+    <div></div>
+  </div>
+  <div *ngSwitchCase="UserType.UnAuthenticated">
+    <router-outlet/>
+  </div>
+  <app-layout-wrapper *ngSwitchDefault [navRoutes]="navRoutes">
+    <router-outlet/>
+  </app-layout-wrapper>
+</div>
+
