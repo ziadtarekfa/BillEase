@@ -1,58 +1,65 @@
 .cards {
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    width: 70%;
-    padding: 30px 20px 30px 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px 20px 30px 10px;
+  flex-wrap: wrap;
 }
 
-.cards>div {
-    display: flex;
+.cards > div {
+  display: flex;
+}
+
+.cards > div > * {
+  flex: 1;
 }
 
 .cards hr {
-    border: 1px solid #ECECEE;
+  border: 1px solid #ECECEE;
 }
 
 .filter_container {
-    display: flex;
-    margin-top: 50px;
+  display: flex;
+  margin-top: 50px;
 }
 
 
 .filter_btn {
-    background-color: white;
-    width: 42px;
-    height: 32px;
-    display: flex;
-    border: 2px solid #D1D3D9;
-    border-radius: 7px;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 2px 5px #D1D3D9;
+  background-color: white;
+  width: 42px;
+  height: 32px;
+  display: flex;
+  border: 2px solid #D1D3D9;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px #D1D3D9;
 
 }
 
 .filter_btn img {
-    width: 18px;
+  width: 18px;
 }
 
 .filter_container input {
-    background-color: white;
-    width: 20%;
-    height: 32px;
-    display: flex;
-    border: 2px solid #D1D3D9;
-    border-radius: 7px;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-    margin-left: 10px;
+  background-color: white;
+  width: 20%;
+  height: 32px;
+  display: flex;
+  border: 2px solid #D1D3D9;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .filter_container input::placeholder {
-    color: #A1A9B8;
-    font-weight: 500;
-    font-size: 14px;
+  color: #A1A9B8;
+  font-weight: 500;
+  font-size: 14px;
 }

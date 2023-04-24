@@ -15,6 +15,6 @@ export class PageComponent {
         const verticalOffset =
             document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-        this.isStuck = verticalOffset > 4;
+        this.isStuck = verticalOffset > 0;
     }
 }
