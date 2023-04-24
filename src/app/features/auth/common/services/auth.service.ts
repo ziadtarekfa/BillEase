@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
 import { AngularFireDatabase } from "@angular/fire/compat/database";
-import { Observable } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import User, { UserType } from "../models/user";
 
 @Injectable({
@@ -10,9 +10,9 @@ import User, { UserType } from "../models/user";
 })
 export class AuthService {
     constructor(
-        private fireAuth: AngularFireAuth,
-        private db: AngularFireDatabase,
-        private router: Router
+        private readonly fireAuth: AngularFireAuth,
+        private readonly db: AngularFireDatabase,
+        private readonly router: Router
     ) {}
 
     signIn(email: string, password: string) {
@@ -32,8 +32,9 @@ export class AuthService {
         password: string,
         data: {
             name: string;
-            phone: string;
-        }
+            phone?: string;
+        },
+        isAdmin: boolean = false
     ) {
         try {
             const res = await this.fireAuth.createUserWithEmailAndPassword(
@@ -47,10 +48,11 @@ export class AuthService {
             user?.updateProfile({
                 displayName: data.name,
             });
-            await this.db.object(`/customers/${uid}`).set({
+            await this.db.object(`/users/${uid}`).set({
                 ...data,
                 email: email,
                 bills: [],
+                userType: isAdmin ? UserType.Admin : UserType.Customer,
             });
 
             await this.router.navigate([""]);
@@ -60,26 +62,29 @@ export class AuthService {
     }
 
     get currentUser() {
-        return new Observable<User | null>((sub) => {
-            this.fireAuth.user.subscribe((authUser) => {
-                const uid = authUser?.uid;
-                if (uid) {
-                    const userRef = this.db.object(`/customers/${uid}`);
-                    userRef.valueChanges().subscribe((userEntry: any) => {
-                        const user = new User(
-                            uid,
-                            authUser?.email ?? "",
-                            authUser?.displayName ?? "",
-                            userEntry?.phone ?? "",
-                            UserType.Customer
-                        );
-                        sub.next(user);
-                    });
-                } else {
-                    sub.next(null);
-                }
-            });
+        const subject = new BehaviorSubject<{
+            type: UserType;
+            profile?: User;
+        } | null>(null);
+        this.fireAuth.user.subscribe((authUser) => {
+            const uid = authUser?.uid;
+            if (uid) {
+                const userRef = this.db.object(`/users/${uid}`);
+                userRef.valueChanges().subscribe((userEntry: any) => {
+                    const user = new User(
+                        uid,
+                        authUser?.email ?? "",
+                        authUser?.displayName ?? "",
+                        userEntry?.phone ?? "",
+                        userEntry.userType
+                    );
+                    subject.next({ type: userEntry.userType, profile: user });
+                });
+            } else {
+                subject.next({ type: UserType.UnAuthenticated });
+            }
         });
+        return subject;
     }
 
     logout() {

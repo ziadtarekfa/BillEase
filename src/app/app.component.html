@@ -1,4 +1,4 @@
-<app-layout-wrapper *ngIf="!disableLayout; else noLayout">
+<app-layout-wrapper [navRoutes]="navRoutes" *ngIf="!disableLayout; else noLayout">
   <router-outlet/>
 </app-layout-wrapper>
 <ng-template #noLayout>

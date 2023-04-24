@@ -18,15 +18,15 @@ import { environment } from "../environments/environment";
 // import { provideDatabase, getDatabase } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { ElectricityComponent } from "./features/electricity/electricity.component";
 import { WaterComponent } from "./features/water/water.component";
 import { TelephoneComponent } from "./features/telephone/telephone.component";
-import { PageComponent } from './components/layout/page/page.component';
-import { MatIconModule } from '@angular/material/icon';
-import { BillTableComponent } from './bill-table/bill-table.component';
-import { CardComponent } from './card/card.component';
-import { PaginationComponent } from './pagination/pagination.component';
+import { PageComponent } from "./components/layout/page/page.component";
+import { MatIconModule } from "@angular/material/icon";
+import { BillTableComponent } from "./bill-table/bill-table.component";
+import { CardComponent } from "./card/card.component";
+import { PaginationComponent } from "./pagination/pagination.component";
 
 @NgModule({
     declarations: [
@@ -44,12 +44,8 @@ import { PaginationComponent } from './pagination/pagination.component';
         BillTableComponent,
         CardComponent,
         PaginationComponent,
-
-
-
     ],
     imports: [
-
         BrowserModule,
         RouterModule.forRoot([
             { path: "signin", component: SignInComponent },
@@ -57,6 +53,7 @@ import { PaginationComponent } from './pagination/pagination.component';
             { path: "water", component: WaterComponent },
             { path: "electricity", component: ElectricityComponent },
             { path: "telephone", component: TelephoneComponent },
+            { path: "dashboard", component: DashboardComponent },
             { path: "", component: DashboardComponent },
         ]),
         FormsModule,
@@ -71,10 +68,8 @@ import { PaginationComponent } from './pagination/pagination.component';
         // provideDatabase(() => getDatabase()),
         AngularSvgIconModule.forRoot(),
         NgOptimizedImage,
-
-
     ],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
