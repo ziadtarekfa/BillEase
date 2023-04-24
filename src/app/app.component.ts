@@ -18,7 +18,6 @@ export class AppComponent {
 
     constructor(private authService: AuthService, private router: Router) {
         authService.currentUser.subscribe((user) => {
-            console.log({ user });
             this.userType = user?.type ?? UserType.UnAuthenticated;
             this.handleAuthRouteChange(router);
         });
@@ -28,13 +27,11 @@ export class AppComponent {
                     event.url
                 );
                 this.handleAuthRouteChange(router);
-                console.log({ userType: this.userType });
             }
         });
     }
 
     handleAuthRouteChange(router: Router) {
-        console.log({ type: this.userType });
         if (
             this.userType === UserType.UnAuthenticated &&
             !this.disableLayoutRoutes.includes(router.url)

@@ -63,7 +63,6 @@ export class AuthService {
         return new Observable<User | null>((sub) => {
             this.fireAuth.user.subscribe((authUser) => {
                 const uid = authUser?.uid;
-                console.log({ uid });
                 if (uid) {
                     const userRef = this.db.object(`/customers/${uid}`);
                     userRef.valueChanges().subscribe((userEntry: any) => {
