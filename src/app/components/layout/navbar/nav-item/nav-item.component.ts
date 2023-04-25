@@ -6,7 +6,7 @@ import { Component, Input } from "@angular/core";
         <a class="nav-item" [routerLink]="route.path" routerLinkActive="active"
            [routerLinkActiveOptions]="{ exact: true }"
         >
-            <img [src]="route.icon" [alt]="route.name + ' route'"/>
+            <img width="20" height="20" ngSrc="{{route.icon}}" [alt]="route.name + ' route'"/>
 
             <span>{{ route.name }}</span>
         </a>
