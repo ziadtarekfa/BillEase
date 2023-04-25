@@ -23,4 +23,15 @@
       </tbody>
     </ng-template>
   </table>
+  <footer>
+    <div class="pagination">
+      <button (click)="onPrev()" [disabled]="page === 1">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <span>{{page}} of {{totalPages}}</span>
+      <button (click)="onNext()" [disabled]="page === totalPages">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </footer>
 </div>
