@@ -7,23 +7,25 @@
       </form>
     </div>
   </header>
-  <table [cellSpacing]="0" [cellPadding]="0">
-    <thead app-table-head [columns]="columns"></thead>
-    <tbody *ngIf="actualData.length>0; else elseBlock">
-    <ng-container *ngFor="let row of paginatedData">
-      <tr app-table-row [row]="row" [columns]="columns"></tr>
-    </ng-container>
-    </tbody>
-    <ng-template #elseBlock>
-      <tbody>
-      <tr class="empty">
-        <img width="100" height="100"
-             ngSrc="assets/icons/empty.svg" alt="empty">
-        <p>No Records</p>
-      </tr>
+  <div class="tableDiv">
+    <table [cellSpacing]="0" [cellPadding]="0">
+      <thead app-table-head [columns]="columns"></thead>
+      <tbody *ngIf="actualData.length>0; else elseBlock">
+      <ng-container *ngFor="let row of paginatedData">
+        <tr app-table-row [row]="row" [columns]="columns"></tr>
+      </ng-container>
       </tbody>
-    </ng-template>
-  </table>
+      <ng-template #elseBlock>
+        <tbody>
+        <tr class="empty">
+          <img width="100" height="100"
+               ngSrc="assets/icons/empty.svg" alt="empty">
+          <p>No Records</p>
+        </tr>
+        </tbody>
+      </ng-template>
+    </table>
+  </div>
   <footer>
     <div class="pagination">
       <button (click)="onPrev()" [disabled]="page === 1">

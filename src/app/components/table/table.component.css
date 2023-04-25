@@ -10,10 +10,11 @@ h2 {
 }
 
 .table-container {
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 8px;
-  overflow: auto;
   background: var(--color-surface);
+  overflow: hidden;
 }
 
 header {
@@ -48,8 +49,13 @@ header {
 
 
 table {
-  width: 100%;
   padding-bottom: 14px;
+  width: 100%;
+}
+
+.tableDiv {
+  overflow: auto;
+  width: 100%;
 }
 
 td, th {
