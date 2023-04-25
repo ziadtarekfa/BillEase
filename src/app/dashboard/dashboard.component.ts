@@ -42,6 +42,78 @@ export class DashboardComponent {
             username: "bakar",
             email: "bakar@gmail.com",
         },
+        {
+            id: 1,
+            name: "Hazem Muhammad",
+            username: "hompiler",
+            email: "hompiler@gmail.com",
+        },
+        {
+            id: 2,
+            name: "Ziad Tarek",
+            username: "small",
+            email: "small@gmail.com",
+        },
+        {
+            id: 3,
+            name: "Muhammad Wael",
+            username: "hamada",
+            email: "hamada@gmail.com",
+        },
+        {
+            id: 4,
+            name: "Muhammad Gammal",
+            username: "bakar",
+            email: "bakar@gmail.com",
+        },
+        {
+            id: 1,
+            name: "Hazem Muhammad",
+            username: "hompiler",
+            email: "hompiler@gmail.com",
+        },
+        {
+            id: 2,
+            name: "Ziad Tarek",
+            username: "small",
+            email: "small@gmail.com",
+        },
+        {
+            id: 3,
+            name: "Muhammad Wael",
+            username: "hamada",
+            email: "hamada@gmail.com",
+        },
+        {
+            id: 4,
+            name: "Muhammad Gammal",
+            username: "bakar",
+            email: "bakar@gmail.com",
+        },
+        {
+            id: 1,
+            name: "Hazem Muhammad",
+            username: "hompiler",
+            email: "hompiler@gmail.com",
+        },
+        {
+            id: 2,
+            name: "Ziad Tarek",
+            username: "small",
+            email: "small@gmail.com",
+        },
+        {
+            id: 3,
+            name: "Muhammad Wael",
+            username: "hamada",
+            email: "hamada@gmail.com",
+        },
+        {
+            id: 4,
+            name: "Muhammad Gammal",
+            username: "bakar",
+            email: "bakar@gmail.com",
+        },
     ];
 
     constructor(private database: DatabaseService) {

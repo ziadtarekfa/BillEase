@@ -10,7 +10,7 @@
   <table [cellSpacing]="0" [cellPadding]="0">
     <thead app-table-head [columns]="columns"></thead>
     <tbody *ngIf="actualData.length>0; else elseBlock">
-    <ng-container *ngFor="let row of actualData">
+    <ng-container *ngFor="let row of paginatedData">
       <tr app-table-row [row]="row" [columns]="columns"></tr>
     </ng-container>
     </tbody>
