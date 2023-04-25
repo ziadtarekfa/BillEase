@@ -1,23 +1,17 @@
 <app-page title="Billings" subtitle="Information about your current plans and usages">
-  <div class="cards">
+  <div class="cards" style="margin-bottom: 64px">
     <app-card [title]='"Electricity Rate"' [unitsUsed]="'200 kW per hour'" [icon]='"../../assets/icons/lamp.svg"'
-      [iconBackground]='"#FFF2E9"'></app-card>
+              [iconBackground]='"#FFF2E9"'></app-card>
 
     <app-card [title]='"Water Rate"' [unitsUsed]="'2.0 liters per hours'" [icon]='"../../assets/icons/water.svg"'
-      [iconBackground]='"#E3F5FF"'></app-card>
+              [iconBackground]='"#E3F5FF"'></app-card>
 
     <app-card [title]='"Telephone Rate"' [unitsUsed]="'2.0 U.S per hour'" [icon]='"../../assets/icons/telephone.svg"'
-      [iconBackground]='"#FFEBEF"'></app-card>
+              [iconBackground]='"#FFEBEF"'></app-card>
   </div>
-  <div class="filter_container">
-    <button class="filter_btn">
-      <img src="../../assets/icons/filter.svg" alt="filter" />
-    </button>
-    <input type="text" placeholder="Search" />
-  </div>
-  <app-bill-table [bills]="billsList">
 
-  </app-bill-table>
-  <app-pagination />
+  <app-table [columns]="columns" [data]="data"></app-table>
+
+
 
 </app-page>

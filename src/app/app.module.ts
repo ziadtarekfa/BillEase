@@ -13,9 +13,7 @@ import { LayoutWrapperComponent } from "./components/layout/layout-wrapper/layou
 import { NavItemComponent } from "./components/layout/navbar/nav-item/nav-item.component";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { NgOptimizedImage } from "@angular/common";
-
 import { environment } from "../environments/environment";
-// import { provideDatabase, getDatabase } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
@@ -27,7 +25,11 @@ import { MatIconModule } from "@angular/material/icon";
 import { BillTableComponent } from "./bill-table/bill-table.component";
 import { CardComponent } from "./card/card.component";
 import { PaginationComponent } from "./pagination/pagination.component";
-import { DashboardRouterComponent } from './features/auth/dashboard-router/dashboard-router.component';
+import { DashboardRouterComponent } from "./features/auth/dashboard-router/dashboard-router.component";
+import { TableComponent } from "./components/table/table.component";
+import { TableRowComponent } from "./components/table/table-row/table-row.component";
+import { TableHeaderComponent } from "./components/table/table-header/table-header.component";
+import { TableHeadComponent } from './components/table/table-head/table-head.component';
 
 @NgModule({
     declarations: [
@@ -46,6 +48,10 @@ import { DashboardRouterComponent } from './features/auth/dashboard-router/dashb
         CardComponent,
         PaginationComponent,
         DashboardRouterComponent,
+        TableComponent,
+        TableRowComponent,
+        TableHeaderComponent,
+        TableHeadComponent,
     ],
     imports: [
         BrowserModule,

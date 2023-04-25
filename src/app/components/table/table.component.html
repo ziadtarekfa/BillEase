@@ -1,0 +1,26 @@
+<div class="table-container">
+  <header>
+    <h2>{{ actualData.length }} {{actualData.length === 1 ? itemTitle : itemsTitle}}</h2>
+    <div>
+      <form (ngSubmit)="onFilter()">
+        <input name="filter" [(ngModel)]="search" [placeholder]="placeholder">
+      </form>
+    </div>
+  </header>
+  <table [cellSpacing]="0" [cellPadding]="0">
+    <thead app-table-head [columns]="columns"></thead>
+    <tbody *ngIf="actualData.length>0; else elseBlock">
+    <ng-container *ngFor="let row of actualData">
+      <tr app-table-row [row]="row" [columns]="columns"></tr>
+    </ng-container>
+    </tbody>
+    <ng-template #elseBlock>
+      <tbody>
+      <tr class="empty">
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/190726-common-2px-icon/x-16.png" alt="empty">
+        <p>No Records</p>
+      </tr>
+      </tbody>
+    </ng-template>
+  </table>
+</div>
