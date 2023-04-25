@@ -42,6 +42,10 @@ header {
   max-width: 300px;
 }
 
+.table-container header input {
+  padding-top: 7px;
+}
+
 
 table {
   width: 100%;
