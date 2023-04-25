@@ -17,7 +17,8 @@
     <ng-template #elseBlock>
       <tbody>
       <tr class="empty">
-        <img src="https://icons.veryicon.com/png/o/miscellaneous/190726-common-2px-icon/x-16.png" alt="empty">
+        <img width="100" height="100"
+             ngSrc="assets/icons/empty.svg" alt="empty">
         <p>No Records</p>
       </tr>
       </tbody>
@@ -29,7 +30,7 @@
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
       <span>{{page}} of {{totalPages}}</span>
-      <button (click)="onNext()" [disabled]="page === totalPages">
+      <button (click)="onNext()" [disabled]="page >= totalPages">
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </div>

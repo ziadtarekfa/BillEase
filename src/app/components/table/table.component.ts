@@ -24,7 +24,10 @@ export class TableComponent implements OnInit {
     @Input() itemsPerPage = 10;
 
     private calculateTotalPages(data: TableData) {
-        this.totalPages = Math.ceil(data.length / this.itemsPerPage);
+        this.totalPages = Math.max(
+            Math.ceil(data.length / this.itemsPerPage),
+            1
+        );
     }
 
     ngOnInit(): void {
