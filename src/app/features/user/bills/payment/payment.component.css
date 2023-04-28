@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.container > * {
+  flex: 1;
+}
+
+.card-info {
+  max-width: 482px;
+  padding: 32px;
+  box-shadow: var(--box-shadow-card);
+  border-radius: 12px;
+  background: var(--color-surface);
+  overflow: hidden;
+  height: fit-content;
+}
+
+.card-info form {
+  display: grid;
+  margin-top: 32px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name name"
+  "number number"
+  "date cvv"
+  "button button";
+  gap: 8px 16px;
+}
+
+#cardHolderNameField {
+  grid-area: name;
+}
+
+#cardNumberField {
+  grid-area: number;
+}
+
+#expiryDateField {
+  grid-area: date;
+}
+
+#cvvField {
+  grid-area: cvv;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.form-item label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-item input {
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid lightgray;
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-item input:focus {
+  border: 1px solid var(--color-primary);
+  outline: 5px solid #dad2ff;
+}
+
+
+.card-info button {
+  grid-area: button;
+  margin-top: 16px;
+
+  height: 48px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid var(--color-primary);
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+  background: var(--color-primary);
+  color: white;
+}
+
+.card-info button:hover {
+  background: var(--color-primary-dark);
+  color: white;
+}
+
+.card-info button:active, .card-info button:focus {
+  outline: 5px solid #dad2ff;
+}
+
+.card-info button:active {
+  background: var(--color-primary);
+}
+
+.card-info button:disabled {
+  background: lightgray;
+  color: white;
+  cursor: not-allowed;
+}

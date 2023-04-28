@@ -1,0 +1,36 @@
+<app-page title="Bill Summary">
+  <div class="container">
+    <app-bill-summary/>
+    <section class="card-info">
+      <img ngSrc="assets/icons/bill-header.svg" width="54" height="54" alt="header icon">
+      <h2>Pay Bill</h2>
+      <p class="secondaryText">
+        Pay your bills safely, conveniently & easily.
+        You can pay anytime and anywhere!
+      </p>
+      <form>
+        <div class="form-item" id="cardHolderNameField">
+          <label for="cardHolderName">Card Holder Name</label>
+          <input type="text" id="cardHolderName" placeholder="Your name here">
+        </div>
+
+        <div class="form-item" id="cardNumberField">
+          <label for="cardNumber">Account Number</label>
+          <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx">
+        </div>
+
+        <div class="form-item" id="expiryDateField">
+          <label for="expiryDate">Expiry Date</label>
+          <input type="text" id="expiryDate" placeholder="12/34">
+        </div>
+
+        <div class="form-item" id="cvvField">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" placeholder="123">
+        </div>
+
+        <button>Confirm Payment</button>
+      </form>
+    </section>
+  </div>
+</app-page>

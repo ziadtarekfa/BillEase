@@ -1,0 +1,28 @@
+
+.section {
+  margin-bottom: 48px;
+}
+
+
+.detailsItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 8px;
+}
+
+.detailsItem span:first-child {
+  color: grey;
+}
+
+.divider {
+  margin-top: 32px;
+  width: 100%;
+  height: 1px;
+  transition: height .4s ease-in-out, width .8s ease-in-out;
+  background: radial-gradient(rgba(173, 167, 167, 0.76) 0%, rgba(110, 110, 110, 0) 90%);
+}
+
+.section:last-child .divider {
+  display: none;
+}
