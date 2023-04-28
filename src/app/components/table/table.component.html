@@ -1,6 +1,6 @@
 <div class="table-container">
   <header>
-    <h2>{{ actualData.length }} {{actualData.length === 1 ? itemTitle : itemsTitle}}</h2>
+    <h2>{{ !loading ? actualData.length : "" }} {{!loading ? actualData.length === 1 ? itemTitle : itemsTitle : ""}}</h2>
     <div>
       <form (ngSubmit)="onFilter()">
         <input name="filter" [(ngModel)]="search" [placeholder]="placeholder">
@@ -17,11 +17,16 @@
       </tbody>
       <ng-template #elseBlock>
         <tbody>
-        <tr class="empty">
+        <tr class="empty" *ngIf="!actualLoading; else loading">
           <img width="100" height="100"
                ngSrc="assets/icons/empty.svg" alt="empty">
           <p>No Records</p>
         </tr>
+        <ng-template #loading>
+          <tr class="empty">
+            <app-loading/>
+          </tr>
+        </ng-template>
         </tbody>
       </ng-template>
     </table>

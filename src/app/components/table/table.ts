@@ -8,7 +8,7 @@ export interface TableColumn {
 export type TableColumns = Array<TableColumn>;
 
 export type TableDataItem = {
-    [key: string]: string | number | boolean;
+    [key: string]: any;
 };
 
 export type TableData = Array<TableDataItem>;

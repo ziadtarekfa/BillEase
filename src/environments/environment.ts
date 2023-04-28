@@ -1,4 +1,4 @@
-import { UserType } from "../app/features/auth/common/models/user";
+import { UserType } from "../app/features/_global/auth/_common/models/user";
 
 export const environment = {
     firebase: {
@@ -11,6 +11,7 @@ export const environment = {
         messagingSenderId: "17481506580",
     },
     production: false,
+    baseUrl: "https://billease-9f11b-default-rtdb.firebaseio.com",
     navRoutes: {
         [UserType.Customer]: [
             {
@@ -24,14 +25,14 @@ export const environment = {
                 icon: "assets/icons/lamp.svg",
             },
             {
-                path: "/water",
-                name: "Water",
-                icon: "assets/icons/water.svg",
-            },
-            {
                 path: "/telephone",
                 name: "Telephone",
                 icon: "assets/icons/telephone.svg",
+            },
+            {
+                path: "/water",
+                name: "Water",
+                icon: "assets/icons/water.svg",
             },
         ],
         [UserType.Admin]: [

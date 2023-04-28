@@ -1,0 +1,16 @@
+<app-page title="Billings" subtitle="Information about your current plans and usages">
+  <div class="cards" style="margin-bottom: 64px">
+    <app-card [title]='"Electricity Rate"' [unitsUsed]="'200 kW per hour'" [icon]='"../../assets/icons/lamp.svg"'
+              [iconBackground]='"#FFF2E9"'></app-card>
+
+    <app-card [title]='"Water Rate"' [unitsUsed]="'2.0 liters per hours'" [icon]='"../../assets/icons/water.svg"'
+              [iconBackground]='"#E3F5FF"'></app-card>
+
+    <app-card [title]='"Telephone Rate"' [unitsUsed]="'2.0 U.S per hour'" [icon]='"../../assets/icons/telephone.svg"'
+              [iconBackground]='"#FFEBEF"'></app-card>
+  </div>
+
+  <app-table [columns]="billsColumns" [data]="data" [loading]="loading"></app-table>
+
+
+</app-page>

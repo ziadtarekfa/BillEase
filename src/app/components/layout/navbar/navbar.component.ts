@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { AuthService } from "../../../features/auth/common/services/auth.service";
+import { AuthService } from "../../../features/_global/auth/_common/services/auth.service";
 import NavRoute from "@components/layout/navbar/nav-route";
 
 @Component({
