@@ -28,9 +28,10 @@ import { TableComponent } from "./components/table/table.component";
 import { TableRowComponent } from "./components/table/table-row/table-row.component";
 import { TableHeaderComponent } from "./components/table/table-header/table-header.component";
 import { TableHeadComponent } from "./components/table/table-head/table-head.component";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { LoadingComponent } from './components/loading/loading.component';
-
+import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
+import { RatesComponent } from './features/admin/rates/rates.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -51,6 +52,8 @@ import { LoadingComponent } from './components/loading/loading.component';
         TableHeaderComponent,
         TableHeadComponent,
         LoadingComponent,
+        RatesComponent,
+        DashboardAdminComponent,
     ],
     imports: [
         BrowserModule,
@@ -63,6 +66,8 @@ import { LoadingComponent } from './components/loading/loading.component';
             { path: "telephone", component: TelephoneComponent },
             { path: "dashboard", component: DashboardComponent },
             { path: "", component: DashboardRouterComponent },
+            { path: 'admin/dashboard', component: DashboardAdminComponent },
+            { path: 'admin/rates', component: RatesComponent }
         ]),
         FormsModule,
         ReactiveFormsModule,
@@ -77,4 +82,4 @@ import { LoadingComponent } from './components/loading/loading.component';
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

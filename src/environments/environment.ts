@@ -41,6 +41,11 @@ export const environment = {
                 name: "Dashboard",
                 icon: "assets/icons/home.svg",
             },
+            {
+                path: "/admin/rates",
+                name: "Rates",
+                icon: "assets/icons/home.svg",
+            },
         ],
     },
 };
