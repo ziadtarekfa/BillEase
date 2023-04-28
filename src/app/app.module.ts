@@ -28,8 +28,12 @@ import { TableComponent } from "./components/table/table.component";
 import { TableRowComponent } from "./components/table/table-row/table-row.component";
 import { TableHeaderComponent } from "./components/table/table-header/table-header.component";
 import { TableHeadComponent } from "./components/table/table-head/table-head.component";
-import {HttpClientModule} from "@angular/common/http";
-import { LoadingComponent } from './components/loading/loading.component';
+import { HttpClientModule } from "@angular/common/http";
+import { LoadingComponent } from "./components/loading/loading.component";
+import { PaymentComponent } from "./features/user/bills/payment/payment.component";
+import { BillsTableComponent } from "./features/user/bills/bills-table/bills-table.component";
+import { BillSummaryComponent } from './features/_global/bill-summary/bill-summary.component';
+import { InputComponent } from './components/form/input/input.component';
 
 @NgModule({
     declarations: [
@@ -51,11 +55,19 @@ import { LoadingComponent } from './components/loading/loading.component';
         TableHeaderComponent,
         TableHeadComponent,
         LoadingComponent,
+        PaymentComponent,
+        BillsTableComponent,
+        BillSummaryComponent,
+        InputComponent,
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
         RouterModule.forRoot([
+            {
+                path: "bill/:id",
+                component: PaymentComponent,
+            },
             { path: "signin", component: SignInComponent },
             { path: "signup", component: SignUpComponent },
             { path: "water", component: WaterComponent },

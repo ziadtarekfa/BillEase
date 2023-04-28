@@ -5,7 +5,7 @@ import {
     OnInit,
     SimpleChanges,
 } from "@angular/core";
-import { TableColumns, TableData } from "@components/table/table";
+import { TableActions, TableColumns, TableData } from "@components/table/table";
 import { BehaviorSubject } from "rxjs";
 
 @Component({
@@ -17,6 +17,7 @@ export class TableComponent implements OnInit, OnChanges {
     @Input() columns: TableColumns = [];
     @Input() data: TableData = [];
     @Input() loading = false;
+    @Input() actions: TableActions = [];
     actualLoading = this.loading;
     actualData: TableData = this.data;
     private actualData$ = new BehaviorSubject<TableData>(this.actualData);
@@ -41,7 +42,6 @@ export class TableComponent implements OnInit, OnChanges {
     ngOnInit(): void {
         this.actualData$.next(this.data);
         this.actualData$.subscribe((data) => {
-            console.log("actualData$ data: ", data);
             this.actualData = data;
             this.calculateTotalPages(data);
             this.setPaginatedData(data);

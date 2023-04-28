@@ -12,3 +12,13 @@ export type TableDataItem = {
 };
 
 export type TableData = Array<TableDataItem>;
+
+export interface TableAction {
+    text?: string;
+    onClick?: () => void;
+    icon?: string;
+    type: "link" | "button";
+    link?: (row: TableDataItem) => string;
+}
+
+export type TableActions = Array<TableAction>;

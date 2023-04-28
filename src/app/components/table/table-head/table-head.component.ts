@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { TableColumns } from "@components/table/table";
+import { TableActions, TableColumns } from "@components/table/table";
 
 @Component({
     selector: "[app-table-head]",
@@ -8,10 +8,12 @@ import { TableColumns } from "@components/table/table";
             <th *ngFor="let column of columns">
                 {{ column.title }}
             </th>
+            <th *ngIf="actions.length > 0" class="actionHeader">Actions</th>
         </tr>
     `,
     styleUrls: ["../table.component.css"],
 })
 export class TableHeadComponent {
     @Input() columns: TableColumns = [];
+    @Input() actions: TableActions = [];
 }

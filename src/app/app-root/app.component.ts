@@ -29,7 +29,6 @@ export class AppComponent {
         billsService.getAll().then((res) => console.log({ res }));
         authService.currentUser.subscribe((user) => {
             this.userType = user?.type;
-            console.log({ type: this.userType });
             this.handleAuthRouteChange(router);
             this.setupNavRoutes();
         });

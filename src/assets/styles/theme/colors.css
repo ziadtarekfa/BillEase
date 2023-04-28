@@ -1,5 +1,6 @@
 :root {
   --color-primary: #754dff;
+  --color-primary-dark: #5330c9;
   --color-on-primary: #fff;
   --color-primary-container: #F3F0FF;
   --color-on-primary-container: var(--color-primary);
