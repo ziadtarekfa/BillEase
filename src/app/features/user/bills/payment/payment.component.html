@@ -1,7 +1,7 @@
-<app-page title="Bill Summary">
+<app-page title="Bill Summary" [loading]="loading">
   <div class="container">
     <app-bill-summary [bill]="bill" [user]="user"/>
-    <section class="card-info">
+    <section *ngIf="bill?.paid === false" class="card-info">
       <div [class]="successfulPayment$.getValue()  ? 'success-container success' : 'success-container' ">
         <img src="assets/animations/success.gif" alt="success">
         <h2>

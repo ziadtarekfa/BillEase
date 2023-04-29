@@ -18,8 +18,15 @@ export class BillsTableComponent {
     @Input() loading = false;
     actions: TableActions = [
         {
+            disable: (row) => row["paid"],
             type: "link",
             text: "Pay",
+            link: (row) => `/bill/${row["id"]}`,
+        },
+        {
+            disable: (row) => !row["paid"],
+            type: "link",
+            text: "View",
             link: (row) => `/bill/${row["id"]}`,
         },
     ];

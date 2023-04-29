@@ -64,20 +64,31 @@ export class BillSummaryComponent implements OnChanges {
                             : "No Overdue",
                 },
             ],
-            [
-                {
-                    title: "Bill Fees",
-                    value: formatCurrency(this.bill?.billFees),
-                },
-                {
-                    title: "Overdue Fees",
-                    value: formatCurrency(this.bill?.overdueFees),
-                },
-                {
-                    title: "Total",
-                    value: formatCurrency(this.bill?.totalFees),
-                },
-            ],
+            this.bill?.paid
+                ? [
+                      {
+                          title: "Paid Amount",
+                          value: formatCurrency(this.bill?.paidAmount),
+                      },
+                      {
+                          title: "Payment Date",
+                          value: this.bill?.paymentDateFormatted,
+                      },
+                  ]
+                : [
+                      {
+                          title: "Bill Fees",
+                          value: formatCurrency(this.bill?.billFees),
+                      },
+                      {
+                          title: "Overdue Fees",
+                          value: formatCurrency(this.bill?.overdueFees),
+                      },
+                      {
+                          title: "Total",
+                          value: formatCurrency(this.bill?.totalFees),
+                      },
+                  ],
         ];
     }
 }

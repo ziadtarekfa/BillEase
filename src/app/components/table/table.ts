@@ -19,6 +19,7 @@ export interface TableAction {
     icon?: string;
     type: "link" | "button";
     link?: (row: TableDataItem) => string;
+    disable?: (row: TableDataItem) => boolean;
 }
 
 export type TableActions = Array<TableAction>;

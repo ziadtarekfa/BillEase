@@ -7,6 +7,7 @@ export default class Bill {
         public type: string,
         public consumedUnits: number,
         public createdAt: Date,
+        public paidAmount?: number,
         public dueDate?: Date,
         public paymentDate?: Date
     ) {}
@@ -26,7 +27,8 @@ export default class Bill {
 
     get paymentDateFormatted(): string {
         return this.paid
-            ? "Paid at " + new Intl.DateTimeFormat().format(this.paymentDate).toString()
+            ? "Paid at " +
+                  new Intl.DateTimeFormat().format(this.paymentDate).toString()
             : "Not paid yet";
     }
 
@@ -68,6 +70,7 @@ export default class Bill {
             dto.type,
             dto.consumedUnits ?? 100,
             dto.createdAt ? new Date(dto.createdAt) : new Date(),
+            dto.paidAmount ?? 0,
             dto.dueDate ? new Date(dto.dueDate) : undefined,
             dto.paymentDate ? new Date(dto.paymentDate) : undefined
         );

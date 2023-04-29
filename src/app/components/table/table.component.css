@@ -171,11 +171,15 @@ input {
 }
 
 .actionItem {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
   background: white;
   z-index: 1;
 }
 
 .actionButton {
+  width: fit-content;
   background-color: transparent;
   padding: 8px 18px;
   color: var(--color-primary);

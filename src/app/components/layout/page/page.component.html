@@ -4,9 +4,16 @@
       <h1 class="title">{{title}}</h1>
       <p class="subtitle" *ngIf="subtitle!==undefined">{{subtitle}}</p>
     </div>
-    <div  class="divider"></div>
+    <div class="divider"></div>
   </header>
   <main>
-    <ng-content/>
+    <ng-container *ngIf="!isLoading; else loading">
+      <ng-content/>
+    </ng-container>
+    <ng-template #loading>
+      <div class="loading">
+        <app-loading/>
+      </div>
+    </ng-template>
   </main>
 </div>

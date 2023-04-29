@@ -16,6 +16,7 @@ export class PaymentComponent {
     user?: User;
     id: string;
     successfulPayment$ = new BehaviorSubject(false);
+    loading = false;
 
     constructor(
         private readonly billsService: BillsService,
@@ -24,7 +25,8 @@ export class PaymentComponent {
         private readonly route: ActivatedRoute
     ) {
         this.id = (this.route.params as BehaviorSubject<any>).getValue().id;
-        this.fetchBill();
+        this.loading = true;
+        this.fetchBill().then(() => (this.loading = false));
         this.successfulPayment$.subscribe((paymentDone) => {
             if (paymentDone) {
                 let newRoute = this.bill?.type ?? "";
