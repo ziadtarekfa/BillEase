@@ -1,4 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import Bill from "../../user/bills/_common/services/bill";
+import User from "../auth/_common/models/user";
+import { object } from "@angular/fire/database";
+import dateDifferenceCalculator from "../../../../utils/date-diff-calculator";
+import formatCurrency from "../../../../utils/currency-formatter";
 
 @Component({
     selector: "app-bill-summary",
@@ -15,53 +20,64 @@ import { Component } from "@angular/core";
     `,
     styleUrls: ["./bill-summary.component.css"],
 })
-export class BillSummaryComponent {
-    sections = [
-        [
-            {
-                title: "Bill ID",
-                value: "123456789",
-            },
-            {
-                title: "Name",
-                value: "John Doe",
-            },
-            {
-                title: "Consumed Units",
-                value: "123 KW",
-            },
-            {
-                title: "Address",
-                value: "123 Main St, New York, NY 10030",
-            },
-        ],
-        [
-            {
-                title: "Issued Date",
-                value: "01/01/2021",
-            },
-            {
-                title: "Due Date",
-                value: "01/15/2021",
-            },
-            {
-                title: "Overdue Days",
-                value: "12",
-            },
-        ],
-        [
-            {
-                title: "Bill Fees",
-                value: "$123.45",
-            },
-            {
-                title: "Overdue Fees",
-                value: "$12.34",
-            },
-            {
-                title: "Total",
-                value: "$135.79",
-            },
-        ],
-    ];
+export class BillSummaryComponent implements OnChanges {
+    @Input() bill?: Bill;
+    @Input() user?: User;
+
+    sections: Array<Array<any>> = [];
+
+    ngOnChanges(changes: SimpleChanges) {
+        this.bill = changes["bill"]?.currentValue ?? this.bill;
+        this.sections = changes["user"]?.currentValue ?? this.user;
+        const daysDiff = this.bill?.dueDate
+            ? dateDifferenceCalculator(this.bill?.dueDate, new Date())
+            : 0;
+        this.sections = [
+            [
+                {
+                    title: "Bill ID",
+                    value: this.bill?.id,
+                },
+                {
+                    title: "Name",
+                    value: this.user?.name,
+                },
+                {
+                    title: "Consumed Units",
+                    value: `${this.bill?.consumedUnits} ${this.bill?.unit}`,
+                },
+            ],
+            [
+                {
+                    title: "Issued Date",
+                    value: this.bill?.createdAtFormatted,
+                },
+                {
+                    title: "Due Date",
+                    value: this.bill?.dueDateFormatted,
+                },
+                {
+                    title: "Overdue Days",
+                    value:
+                        this.bill?.dueDate && daysDiff > 0
+                            ? `${daysDiff} ${daysDiff === 1 ? "day" : "days"}`
+                            : "No Overdue",
+                },
+            ],
+            [
+                {
+                    title: "Bill Fees",
+                    value: formatCurrency(this.bill?.billFees),
+                },
+                {
+                    title: "Overdue Fees",
+                    value: formatCurrency(this.bill?.overdueFees),
+                },
+                {
+                    title: "Total",
+                    value: formatCurrency(this.bill?.totalFees),
+                },
+            ],
+        ];
+    }
 }

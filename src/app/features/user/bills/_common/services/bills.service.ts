@@ -27,7 +27,7 @@ export default class BillsService {
     ];
 
     getAll(filter?: string): Promise<Array<Bill>> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this.authService.currentUser.subscribe((user) => {
                 if (!user) return;
                 const userId = user.profile?.id;
@@ -45,6 +45,45 @@ export default class BillsService {
                             Bill.fromDTO({ ...value, id })
                         );
                         resolve(data);
+                    });
+            });
+        });
+    }
+
+    async getById(id: string): Promise<Bill> {
+        return new Promise((resolve) => {
+            this.authService.currentUser.subscribe((user) => {
+                if (!user) return;
+                const userId = user.profile?.id;
+                this.http
+                    .get(
+                        `${environment.baseUrl}/bills/${userId}/${id}.json?print=pretty`
+                    )
+                    .subscribe((res) => {
+                        if (!res) return;
+                        const data = Bill.fromDTO({ ...res, id });
+                        resolve(data);
+                    });
+            });
+        });
+    }
+
+    async pay(id: string): Promise<boolean> {
+        return new Promise((resolve) => {
+            this.authService.currentUser.subscribe((user) => {
+                if (!user) return;
+                const userId = user.profile?.id;
+                this.http
+                    .patch(
+                        `${environment.baseUrl}/bills/${userId}/${id}.json?print=pretty`,
+                        {
+                            paymentDate: new Date().toISOString(),
+                            paid: true,
+                        }
+                    )
+                    .subscribe((res) => {
+                        if (!res) return;
+                        resolve(true);
                     });
             });
         });

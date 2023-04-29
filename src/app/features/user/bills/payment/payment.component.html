@@ -1,7 +1,15 @@
 <app-page title="Bill Summary">
   <div class="container">
-    <app-bill-summary/>
+    <app-bill-summary [bill]="bill" [user]="user"/>
     <section class="card-info">
+      <div [class]="successfulPayment$.getValue()  ? 'success-container success' : 'success-container' ">
+        <img src="assets/animations/success.gif" alt="success">
+        <h2>
+          <span>Payment Successful!</span>
+          {{" " }}
+          <span>Thank you for using our service.</span>
+        </h2>
+      </div>
       <img ngSrc="assets/icons/bill-header.svg" width="54" height="54" alt="header icon">
       <h2>Pay Bill</h2>
       <p class="secondaryText">
@@ -29,7 +37,7 @@
           <input type="text" id="cvv" placeholder="123">
         </div>
 
-        <button>Confirm Payment</button>
+        <button (click)="confirmPayment()">Confirm Payment</button>
       </form>
     </section>
   </div>

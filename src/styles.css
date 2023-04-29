@@ -52,3 +52,7 @@ h2 {
   line-height: 24px;
   color: #5C5C5C;
 }
+
+img {
+  max-width: 100%;
+}
