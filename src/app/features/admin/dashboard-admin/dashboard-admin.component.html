@@ -1,86 +1,14 @@
 <app-page title="Dashboard" subtitle="Manage users and bills efficiently">
-    <div class="card">
-        <app-card [title]='"Number of Users"' [unitsUsed]="'200'" [icon]='"../../assets/icons/person.svg"'
-            [iconBackground]='"#e0deff"' />
-    </div>
-    <h1>Users</h1>
-    <div class="filter_container">
-        <input type="text" placeholder="Search for a user by email address" />
-        <button>Search</button>
-    </div>
+  <div class="card" style="margin-bottom: 40px">
+    <app-card [title]='"Number of Users"' [unitsUsed]="customers.length.toString()"
+              [icon]='"../../assets/icons/person.svg"'
+              [iconBackground]='"#e0deff"'/>
+  </div>
 
-    <table>
-        <thead>
-            <th>#</th>
-            <th>User ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Numbers of Bills</th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr style="background-color: #F4F2FE;">
-                <td>1</td>
-                <td class="user_id">5684236526</td>
-                <td>Ziad Tarek</td>
-                <td>ziadtarekfa@gmail.com</td>
-                <td>+201066324579</td>
-                <td>20</td>
-                <a [routerLink]="['/admin/user-details/','5684236526']">
-                    <td class="view_details">View Details</td>
-                </a>
-
-            </tr>
-            <tr style="background-color: white;">
-                <td>2</td>
-                <td class="user_id">5684236526</td>
-                <td>Ziad Tarek</td>
-                <td>ziadtarekfa@gmail.com</td>
-                <td>+201066324579</td>
-                <td>20</td>
-                <a [routerLink]="['/admin/user-details/','5684236526']">
-                    <td class="view_details">View Details</td>
-                </a>
-
-            </tr>
-            <tr style="background-color: #F4F2FE;">
-                <td>3</td>
-                <td class="user_id">5684236526</td>
-                <td>Ziad Tarek</td>
-                <td>ziadtarekfa@gmail.com</td>
-                <td>+201066324579</td>
-                <td>20</td>
-                <a [routerLink]="['/admin/user-details/','5684236526']">
-                    <td class="view_details">View Details</td>
-                </a>
-
-            </tr>
-            <tr style="background-color: white;">
-                <td>4</td>
-                <td class="user_id">5684236526</td>
-                <td>Ziad Tarek</td>
-                <td>ziadtarekfa@gmail.com</td>
-                <td>+201066324579</td>
-                <td>20</td>
-                <a [routerLink]="['/admin/user-details/','5684236526']">
-                    <td class="view_details">View Details</td>
-                </a>
-
-            </tr>
-            <tr style="background-color: #F4F2FE;">
-                <td>5</td>
-                <td class="user_id">5684236526</td>
-                <td>Ziad Tarek</td>
-                <td>ziadtarekfa@gmail.com</td>
-                <td>+201066324579</td>
-                <td>20</td>
-                <a [routerLink]="['/admin/user-details/','5684236526']">
-                    <td class="view_details">View Details</td>
-                </a>
-            </tr>
-        </tbody>
-    </table>
-
-
+  <app-table
+    [columns]="customersColumns"
+    [data]="customers"
+    [loading]="loading"
+    [actions]="actions"
+  ></app-table>
 </app-page>
