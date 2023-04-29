@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.header .img-container {
+  background: rgba(211, 211, 211, 0.49);
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  width: fit-content;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.divider {
+  margin-top: 36px;
+}
+
+.section .form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
