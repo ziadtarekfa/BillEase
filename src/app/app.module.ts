@@ -32,6 +32,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { LoadingComponent } from './components/loading/loading.component';
 import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
 import { RatesComponent } from './features/admin/rates/rates.component';
+import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -54,6 +55,7 @@ import { RatesComponent } from './features/admin/rates/rates.component';
         LoadingComponent,
         RatesComponent,
         DashboardAdminComponent,
+        UserDetailsComponent,
     ],
     imports: [
         BrowserModule,
@@ -67,7 +69,8 @@ import { RatesComponent } from './features/admin/rates/rates.component';
             { path: "dashboard", component: DashboardComponent },
             { path: "", component: DashboardRouterComponent },
             { path: 'admin/dashboard', component: DashboardAdminComponent },
-            { path: 'admin/rates', component: RatesComponent }
+            { path: 'admin/rates', component: RatesComponent },
+            { path: 'admin/user-details/:userId', component: UserDetailsComponent }
         ]),
         FormsModule,
         ReactiveFormsModule,
