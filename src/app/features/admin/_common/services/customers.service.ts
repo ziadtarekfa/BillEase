@@ -58,6 +58,7 @@ export default class CustomersService {
                             `${environment.baseUrl}/bills/${id}.json?print=pretty`
                         )
                         .subscribe((bills) => {
+
                             resolve(
                                 Customer.fromDTO({
                                     id,

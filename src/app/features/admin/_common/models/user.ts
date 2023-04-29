@@ -14,6 +14,6 @@ export default class Customer {
     }
 
     static fromDTO(dto: any) {
-        return new Customer(dto.id, dto.name, dto.email, dto.phone, dto.billsCount);
+        return new Customer(dto.id, dto.name, dto.email, dto.phone, dto.bills);
     }
 }
