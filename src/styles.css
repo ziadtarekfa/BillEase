@@ -1,7 +1,6 @@
 @import "./assets/styles/theme/dimensions.css";
 @import "./assets/styles/theme/colors.css";
 
-
 a {
   text-decoration: none;
 }
@@ -36,6 +35,7 @@ h3 {
 .flexbox_column {
   display: flex;
   flex-direction: column;
+
 }
 
 h2 {

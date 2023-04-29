@@ -1,0 +1,90 @@
+.card {
+    background-color: white;
+    width: fit-content;
+    padding: 30px 100px 30px 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 25px;
+    margin-top: 20px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+table {
+    text-align: left;
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: white;
+}
+
+th {
+    color: #464F60;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 10px;
+}
+
+td {
+    color: #464F60;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 20px 10px 20px 10px;
+}
+
+.user_id {
+    color: #687182;
+}
+
+.view_details {
+    color: #9d9d9d;
+    font-weight: 700;
+}
+
+.view_details:hover {
+    color: #4d47c3;
+    cursor: pointer;
+}
+
+.filter_container {
+    display: flex;
+    align-items: center;
+}
+
+.filter_container>* {
+    height: 32px;
+    margin-top: 10px;
+}
+
+.filter_container button {
+    border: none;
+    background-color: #4d47c3;
+    height: 28px;
+    width: 7%;
+    color: white;
+    margin-left: 30px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
+}
+
+input {
+    background-color: white;
+    width: 30%;
+    border: 2px solid #D1D3D9;
+    border-radius: 7px;
+    padding-left: 10px;
+}
+
+input::placeholder {
+    color: #A1A9B8;
+    font-weight: 500;
+    font-size: 14px;
+}

@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppComponent } from "./app-root/app.component";
 import { SignInComponent } from "./features/_global/auth/sign-in/sign-in.component";
 import { SignUpComponent } from "./features/_global/auth/sign-up/sign-up.component";
@@ -34,7 +33,10 @@ import { PaymentComponent } from "./features/user/bills/payment/payment.componen
 import { BillsTableComponent } from "./features/user/bills/bills-table/bills-table.component";
 import { BillSummaryComponent } from './features/_global/bill-summary/bill-summary.component';
 import { InputComponent } from './components/form/input/input.component';
-
+import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
+import { RatesComponent } from './features/admin/rates/rates.component';
+import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
+import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-modal.component";
 @NgModule({
     declarations: [
         AppComponent,
@@ -59,6 +61,13 @@ import { InputComponent } from './components/form/input/input.component';
         BillsTableComponent,
         BillSummaryComponent,
         InputComponent,
+        RatesComponent,
+        DashboardAdminComponent,
+        UserDetailsComponent,
+        AddBillModalComponent
+    ],
+    entryComponents: [
+        AddBillModalComponent
     ],
     imports: [
         BrowserModule,
@@ -75,6 +84,9 @@ import { InputComponent } from './components/form/input/input.component';
             { path: "telephone", component: TelephoneComponent },
             { path: "dashboard", component: DashboardComponent },
             { path: "", component: DashboardRouterComponent },
+            { path: 'admin/dashboard', component: DashboardAdminComponent },
+            { path: 'admin/rates', component: RatesComponent },
+            { path: 'admin/user-details/:userId', component: UserDetailsComponent }
         ]),
         FormsModule,
         ReactiveFormsModule,
@@ -89,4 +101,4 @@ import { InputComponent } from './components/form/input/input.component';
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
