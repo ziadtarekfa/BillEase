@@ -1,1 +1,53 @@
-<p>user-details works!</p>
+<dialog [open]="true">
+    <div>
+        <p>Greetings, one and all!</p>
+        <form method="dialog">
+            <button>OK</button>
+        </form>
+    </div>
+
+</dialog>
+
+<app-page [title]="'User Bills'" [subtitle]="'View all users bills and add any type of bill'">
+
+    <div class="cards">
+        <app-card [title]='"Total Bills"' [unitsUsed]="'2'" [icon]='"../../assets/icons/bill.svg"'
+            [iconBackground]='"#C6DCEF"' />
+        <app-card [title]='"Pending Bills"' [unitsUsed]="'9'" [icon]='"../../assets/icons/pending-bill.svg"'
+            [iconBackground]='"#F73F3F"' />
+    </div>
+    <div class="user_card">
+        <div className='cx-name'>
+            <h5 style="margin-left : 10;font-size: 20px; ">Anita Cruz</h5>
+        </div>
+        <div class='email-container'>
+            <span>User Id: 5684236526</span>
+        </div>
+        <hr style="margin-top: 10px;">
+        <div class='cx-contact-info'>
+            <h4>Contact info</h4>
+
+            <div class='email-container'>
+                <mat-icon>email</mat-icon>
+                <span>anitacruz123@gmail.com</span>
+            </div>
+            <div class='phone-container'>
+                <mat-icon>phone</mat-icon>
+                <span>+20 106 632 4579</span>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- <div class="filter_container">
+        <input type="text" placeholder="Search for a bill by id" />
+        <button>Search</button>
+    </div> -->
+    <button (click)="addBill()">Add Bill</button>
+
+
+    <div class="bill_table">
+        <app-table [columns]="billsColumns" [data]="data" [loading]="loading" />
+    </div>
+
+</app-page>

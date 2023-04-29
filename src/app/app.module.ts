@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppComponent } from "./app-root/app.component";
 import { SignInComponent } from "./features/_global/auth/sign-in/sign-in.component";
 import { SignUpComponent } from "./features/_global/auth/sign-up/sign-up.component";
@@ -33,6 +32,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
 import { RatesComponent } from './features/admin/rates/rates.component';
 import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
+import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-modal.component";
 @NgModule({
     declarations: [
         AppComponent,
@@ -56,6 +56,10 @@ import { UserDetailsComponent } from './features/admin/user-details/user-details
         RatesComponent,
         DashboardAdminComponent,
         UserDetailsComponent,
+        AddBillModalComponent
+    ],
+    entryComponents: [
+        AddBillModalComponent
     ],
     imports: [
         BrowserModule,
