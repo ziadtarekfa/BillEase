@@ -10,24 +10,31 @@
   background: transparent;
   backdrop-filter: blur(5px);
   border: none;
+  /* width: 400px; */
+  /* transform: translate(-50%, -50%); */
 }
 
-.dialog, .dialog__content {
+.dialog,
+.dialog__content {
   transition: all 0.2s ease-in-out;
 }
 
 .dialog__content {
   border: none;
-
   pointer-events: all;
   width: 50%;
   min-height: 20%;
   max-height: 60%;
-  margin-inline-start: var(--dimension-nav-width);
+  /* margin-inline-start: var(--dimension-nav-width); */
   height: fit-content;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   border-radius: 8px;
+  /* made the dialog centered */
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 .dialog__content header {

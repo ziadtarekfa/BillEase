@@ -1,11 +1,31 @@
-<app-dialog (closeDialog)="onDialogClose()" title="Confirm Payment" [open]="dialogOpen">
+<app-dialog (closeDialog)="onDialogClose()" title="Add Bill" [open]="isDialogOpen">
   <div>
     <form>
       <div class="form-item">
-        <label for="totalAmount">Received amount from the customer</label>
-        <input id="totalAmount" [value]="selectedTotalFees">
+        <label for="bill_type">Bill Type</label>
+        <select id="bill_type">
+          <option>Electricity</option>
+          <option>Water</option>
+          <option>Telephone</option>
+        </select>
       </div>
-      <button>OK</button>
+
+      <div class="form-item">
+        <label for="units_consumed">Consumed Units</label>
+        <input id="units_consumed" value="200" type="number">
+      </div>
+
+      <div class="form-item">
+        <label for="total_amount">Total Amount</label>
+        <input id="total_amount" value="100">
+      </div>
+
+      <!-- issued date & customer details should be posted to database automatically  -->
+      <div class="btns_container">
+        <button id="cancel_btn" (click)="onDialogClose()">Cancel</button>
+        <button type="submit" (click)="addBill()">Add Bill</button>
+      </div>
+
     </form>
   </div>
 </app-dialog>

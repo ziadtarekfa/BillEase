@@ -20,7 +20,7 @@ export class UserDetailsComponent {
     pendingBills: Array<Bill> = [];
     loading = false;
     id: string;
-    dialogOpen = false;
+    isDialogOpen = false;
     selectedBill$ = new BehaviorSubject<Bill | undefined>(undefined);
     selectedTotalFees = 0;
     actions: TableActions = [
@@ -46,7 +46,7 @@ export class UserDetailsComponent {
 
         this.selectedBill$.subscribe((bill) => {
             if (!bill) return;
-            this.dialogOpen = true;
+            this.isDialogOpen = true;
             this.paymentService
                 .calculateFees(bill, 100)
                 .then((totalFees) => (this.selectedTotalFees = totalFees));
@@ -65,9 +65,10 @@ export class UserDetailsComponent {
 
     addBill() {
         console.log("you clicked");
+        this.isDialogOpen = true
     }
 
     onDialogClose() {
-        this.dialogOpen = false;
+        this.isDialogOpen = false;
     }
 }

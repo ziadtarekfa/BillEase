@@ -15,7 +15,18 @@
 .cards>div>* {
     flex: 1;
 }
-/*  */
+
+.btns_container{
+    display: flex;
+    justify-content: end;
+}
+
+#cancel_btn{
+    background-color: transparent;
+    color: black;
+    border: 1px solid gray;
+    margin-right: 10px;
+}
 
 .bill_table {
     margin-top: 40px;
