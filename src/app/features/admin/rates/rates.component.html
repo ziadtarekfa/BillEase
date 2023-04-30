@@ -29,5 +29,9 @@
         Save
       </button>
     </div>
+    <div class="success-container" *ngIf="isSuccessful">
+      <h2>Changes Saved Successfully</h2>
+      <img src="assets/animations/success.gif" alt="success" />
+    </div>
   </form>
 </app-page>

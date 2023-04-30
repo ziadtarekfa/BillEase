@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Rates } from "../../_global/auth/_common/services/rates/rate";
+import { Router } from "@angular/router";
 import RatesService from "../../_global/auth/_common/services/rates/rates.service";
 
 @Component({
@@ -8,6 +9,9 @@ import RatesService from "../../_global/auth/_common/services/rates/rates.servic
     styleUrls: ["./rates.component.css"],
 })
 export class RatesComponent {
+
+    isSuccessful = false;
+    loading = false;
     configs = {
         electricity: {
             title: "Electricity",
@@ -37,11 +41,12 @@ export class RatesComponent {
             backgroundColor: '#FFF2F5'
         },
     };
-    loading = false;
 
-    constructor(private readonly ratesService: RatesService) {
+
+    constructor(private readonly ratesService: RatesService, private readonly router: Router) {
         this.loading = true;
         this.fetchRates().then(() => (this.loading = false));
+
     }
 
     async fetchRates() {
@@ -72,7 +77,10 @@ export class RatesComponent {
         };
 
         const res = await this.ratesService.save(rates);
-        // TODO show success message
+        if (res === true) {
+            this.isSuccessful = true;
+            setTimeout(() => this.router.navigateByUrl('admin/dashboard'), 3000);
+        }
     }
 
     protected readonly Object = Object;
