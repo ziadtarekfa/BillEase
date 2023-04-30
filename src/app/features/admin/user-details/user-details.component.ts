@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import Bill from "../../user/bills/_common/services/bill";
 import { TableActions, TableColumns, TableData } from "@components/table/table";
-import { AddBillModalComponent } from "../add-bill-modal/add-bill-modal.component";
 import Customer from "../_common/models/user";
 import CustomersService from "../_common/services/customers.service";
 import BillsService from "../../user/bills/_common/services/bills.service";
