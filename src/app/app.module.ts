@@ -37,6 +37,7 @@ import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashbo
 import { RatesComponent } from './features/admin/rates/rates.component';
 import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
 import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-modal.component";
+import { DialogComponent } from './components/layout/dialog/dialog.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -64,7 +65,8 @@ import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-
         RatesComponent,
         DashboardAdminComponent,
         UserDetailsComponent,
-        AddBillModalComponent
+        AddBillModalComponent,
+        DialogComponent
     ],
     entryComponents: [
         AddBillModalComponent

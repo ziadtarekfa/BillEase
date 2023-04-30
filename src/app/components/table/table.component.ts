@@ -17,7 +17,9 @@ export class TableComponent implements OnInit, OnChanges {
     @Input() columns: TableColumns = [];
     @Input() data: TableData = [];
     @Input() loading = false;
-    @Input() actions: TableActions = [];
+    @Input() actions: TableActions = [
+
+    ];
     actualLoading = this.loading;
     actualData: TableData = this.data;
     private actualData$ = new BehaviorSubject<TableData>(this.actualData);

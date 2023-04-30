@@ -1,12 +1,14 @@
-<dialog [open]="true">
+<app-dialog (closeDialog)="onDialogClose()" title="Confirm Payment" [open]="dialogOpen">
   <div>
-    <p>Greetings, one and all!</p>
-    <form method="dialog">
+    <form>
+      <div class="form-item">
+        <label for="totalAmount">Received amount from the customer</label>
+        <input id="totalAmount" [value]="selectedTotalFees">
+      </div>
       <button>OK</button>
     </form>
   </div>
-
-</dialog>
+</app-dialog>
 
 <app-page [title]="'User Bills'" [subtitle]="'View all users bills and add any type of bill'" [loading]="loading">
 
@@ -48,7 +50,7 @@
 
 
   <div class="bill_table">
-    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading"/>
+    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions"/>
   </div>
 
 </app-page>

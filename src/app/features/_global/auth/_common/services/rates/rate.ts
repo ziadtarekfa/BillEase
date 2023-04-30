@@ -8,3 +8,7 @@ export type Rates = {
     electricity: Rate;
     telephone: Rate;
 };
+
+export type RatesLookup = {
+    [key: string]: Rate;
+};

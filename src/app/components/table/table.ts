@@ -15,7 +15,7 @@ export type TableData = Array<TableDataItem>;
 
 export interface TableAction {
     text?: string;
-    onClick?: () => void;
+    onClick?: (row: TableDataItem) => void;
     icon?: string;
     type: "link" | "button";
     link?: (row: TableDataItem) => string;

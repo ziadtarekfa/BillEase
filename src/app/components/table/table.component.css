@@ -159,10 +159,7 @@ input {
 
 
 .actionHeader, .actionItem {
-  /*position: sticky;*/
-  /*right: 0;*/
   border-left: 1px solid #c3c2cb;
-
 }
 
 .actionHeader {
@@ -177,6 +174,7 @@ input {
   gap: 8px;
   background: white;
   z-index: 1;
+  height: 56px;
 }
 
 .actionButton {

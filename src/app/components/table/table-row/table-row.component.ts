@@ -15,25 +15,25 @@ import {
         <td *ngIf="actions.length > 0" class="actionItem">
             <ng-container *ngFor="let action of actions">
                 <ng-container *ngIf="!action.disable?.(row)">
-                  <ng-container *ngIf="action.type === 'link'">
-                    <a
+                    <ng-container *ngIf="action.type === 'link'">
+                        <a
 
-                      [routerLink]="action.link?.(row)"
-                      class="actionButton"
-                    >
-                      <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
-                      {{ action.text }}
-                    </a>
-                  </ng-container>
-                  <ng-container *ngIf="action.type === 'button'">
-                    <button
-                      class="actionButton"
-                      (click)="action.onClick?.()"
-                    >
-                      <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
-                      {{ action.text }}
-                    </button>
-                  </ng-container>
+                                [routerLink]="action.link?.(row)"
+                                class="actionButton"
+                        >
+                            <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
+                            {{ action.text }}
+                        </a>
+                    </ng-container>
+                    <ng-container *ngIf="action.type === 'button'">
+                        <button
+                                class="actionButton"
+                                (click)="action.onClick?.(row)"
+                        >
+                            <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
+                            {{ action.text }}
+                        </button>
+                    </ng-container>
                 </ng-container>
             </ng-container>
         </td>
