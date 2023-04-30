@@ -1,0 +1,40 @@
+.user_card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2% 2% 1% 2%;
+    width: fit-content;
+    position: absolute;
+    top: 40px;
+    right: 100px;
+}
+
+.user_id {
+    font-weight: 600;
+    color: gray;
+    font-size: 14px;
+}
+
+.user_card hr {
+    border: 1px solid #dfdede;
+}
+
+.user_card>span {
+    color: #a1a0a0;
+    font-size: 20px;
+}
+
+.user_contact_info_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+    height: 90px;
+}
+
+.user_contact_info_container>div {
+    display: flex;
+}
+
+mat-icon {
+    margin-right: 10px;
+}

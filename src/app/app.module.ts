@@ -38,6 +38,7 @@ import { RatesComponent } from './features/admin/rates/rates.component';
 import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
 import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-modal.component";
 import { DialogComponent } from './components/layout/dialog/dialog.component';
+import { UserCardComponent } from './features/admin/user-card/user-card.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -66,7 +67,8 @@ import { DialogComponent } from './components/layout/dialog/dialog.component';
         DashboardAdminComponent,
         UserDetailsComponent,
         AddBillModalComponent,
-        DialogComponent
+        DialogComponent,
+        UserCardComponent,
     ],
     entryComponents: [
         AddBillModalComponent

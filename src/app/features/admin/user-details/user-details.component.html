@@ -14,43 +14,17 @@
 
   <div class="cards">
     <app-card [title]='"Total Bills"' [unitsUsed]="bills.length.toString()" [icon]='"../../assets/icons/bill.svg"'
-              [iconBackground]='"#C6DCEF"'/>
+      [iconBackground]='"#C6DCEF"' />
     <app-card [title]='"Pending Bills"' [unitsUsed]="pendingBills.length.toString()"
-              [icon]='"../../assets/icons/pending-bill.svg"'
-              [iconBackground]='"#F73F3F"'/>
+      [icon]='"../../assets/icons/pending-bill.svg"' [iconBackground]='"#F73F3F"' />
   </div>
-  <div class="user_card">
-    <div className='cx-name'>
-      <h5 style="font-size: 20px; ">{{customer?.name}}</h5>
-    </div>
-    <div class='email-container'>
-      <span>User Id: {{customer?.id}}</span>
-    </div>
-    <hr style="margin-top: 10px;">
-    <div class='cx-contact-info'>
-      <h4>Contact info</h4>
 
-      <div class='email-container'>
-        <mat-icon>email</mat-icon>
-        <span>{{customer?.email}}</span>
-      </div>
-      <div class='phone-container'>
-        <mat-icon>phone</mat-icon>
-        <span>{{customer?.phone ?? ""}}</span>
-      </div>
+  <app-user-card [customer]="customer" />
 
-    </div>
-
-  </div>
-  <!-- <div class="filter_container">
-      <input type="text" placeholder="Search for a bill by id" />
-      <button>Search</button>
-  </div> -->
   <button (click)="addBill()">Add Bill</button>
 
-
   <div class="bill_table">
-    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions"/>
+    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions" />
   </div>
 
 </app-page>
