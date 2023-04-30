@@ -16,6 +16,7 @@ export class RatesComponent {
             name: "electricity",
             unitCost: 4,
             overdueFees: 10,
+            backgroundColor: '#FFF7F0'
         },
         water: {
             title: "Water",
@@ -24,6 +25,7 @@ export class RatesComponent {
             name: "water",
             unitCost: 2,
             overdueFees: 30,
+            backgroundColor: '#EDF8FF'
         },
         telephone: {
             title: "Telephone",
@@ -32,6 +34,7 @@ export class RatesComponent {
             name: "telephone",
             unitCost: 1,
             overdueFees: 20,
+            backgroundColor: '#FFF2F5'
         },
     };
     loading = false;

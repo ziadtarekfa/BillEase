@@ -2,7 +2,7 @@
   <form (ngSubmit)="onSave()">
     <section class="section" *ngFor="let config of Object.values(configs)">
       <header class="header">
-        <div class="img-container">
+        <div class="img-container" [ngStyle]="{'background-color':config.backgroundColor}">
           <img ngSrc="{{config.icon}}" [alt]="config.title" width="40" height="40">
         </div>
         <h2>{{config.title}}</h2>
@@ -12,15 +12,12 @@
         <div class="form-item">
           <label [for]="config.name+'-unit-cost'">Unit Cost <span>(in {{config.unit}})</span></label>
           <input [(ngModel)]="config['unitCost']" [name]="config.name+'-unit-cost'" [id]="config.name+'-unit-cost'"
-                 type="number" min="0"
-                 [placeholder]="'example:  1 EGP/' + config.unit"/>
+            type="number" min="0" [placeholder]="'example:  1 EGP/' + config.unit" />
         </div>
         <div class="form-item">
           <label [for]="config.name+'-overdue-cost'">Overdue Cost <span>(in {{config.unit}})</span></label>
           <input [name]="config.name+'-overdue-cost'" [id]="config.name+'-overdue-cost'" type="number" min="0"
-                 [placeholder]="'example:  30 EGP '"
-                 [(ngModel)]="config['overdueFees']"
-          />
+            [placeholder]="'example:  30 EGP '" [(ngModel)]="config['overdueFees']" />
         </div>
       </div>
 
