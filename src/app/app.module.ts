@@ -36,7 +36,6 @@ import { InputComponent } from './components/form/input/input.component';
 import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
 import { RatesComponent } from './features/admin/rates/rates.component';
 import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
-import { AddBillModalComponent } from "./features/admin/add-bill-modal/add-bill-modal.component";
 import { DialogComponent } from './components/layout/dialog/dialog.component';
 import { UserCardComponent } from './features/admin/user-card/user-card.component';
 @NgModule({
@@ -66,13 +65,10 @@ import { UserCardComponent } from './features/admin/user-card/user-card.componen
         RatesComponent,
         DashboardAdminComponent,
         UserDetailsComponent,
-        AddBillModalComponent,
         DialogComponent,
         UserCardComponent,
     ],
-    entryComponents: [
-        AddBillModalComponent
-    ],
+    
     imports: [
         BrowserModule,
         HttpClientModule,
