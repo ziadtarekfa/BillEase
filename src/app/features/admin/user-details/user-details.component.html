@@ -41,7 +41,7 @@
 
   <app-user-card [customer]="customer" />
 
-  <button (click)="addBill()">Add Bill</button>
+  <button (click)="onDialogOpen()">Add Bill</button>
 
   <div class="bill_table">
     <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions" />

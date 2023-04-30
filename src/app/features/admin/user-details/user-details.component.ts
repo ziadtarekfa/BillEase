@@ -64,8 +64,11 @@ export class UserDetailsComponent {
     }
 
     addBill() {
-        console.log("you clicked");
-        this.isDialogOpen = true
+        // call service for adding bill
+        this.onDialogClose();
+    }
+    onDialogOpen() {
+        this.isDialogOpen = true;
     }
 
     onDialogClose() {
