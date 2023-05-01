@@ -58,15 +58,16 @@ export default class CustomersService {
                             `${environment.baseUrl}/bills/${id}.json?print=pretty`
                         )
                         .subscribe((bills) => {
-
                             resolve(
                                 Customer.fromDTO({
                                     id,
                                     ...user,
-                                    bills: Object.entries(bills).map(
-                                        ([id, value]) =>
-                                            Bill.fromDTO({ ...value, id })
-                                    ),
+                                    bills: bills
+                                        ? Object.entries(bills).map(
+                                              ([id, value]) =>
+                                                  Bill.fromDTO({ ...value, id })
+                                          )
+                                        : [],
                                 })
                             );
                         });

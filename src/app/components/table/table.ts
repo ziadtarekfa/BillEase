@@ -1,6 +1,6 @@
 export interface TableColumn {
     key?: string;
-    field: string | Array<string>;
+    field: string | Array<string> | ((row: TableDataItem) => any);
     title: string;
     class?: string;
 }

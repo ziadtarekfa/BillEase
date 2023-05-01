@@ -1,29 +1,52 @@
-<app-dialog (closeDialog)="onDialogClose()" title="Add Bill" [open]="isDialogOpen">
+<app-dialog (closeDialog)="onCreateDialogClose()" title="Add Bill" [open]="isCreateDialogOpen">
   <div>
-    <form>
+    <form (ngSubmit)="addBill()">
       <div class="form-item">
-        <label for="bill_type">Bill Type</label>
-        <select id="bill_type">
-          <option>Electricity</option>
-          <option>Water</option>
-          <option>Telephone</option>
+        <label for="create_bill_type">Bill Type</label>
+        <select id="create_bill_type" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="newBill.type">
+          <option value="electricity">Electricity</option>
+          <option value="water">Water</option>
+          <option value="telephone">Telephone</option>
         </select>
       </div>
 
+
       <div class="form-item">
-        <label for="units_consumed">Consumed Units</label>
-        <input id="units_consumed" value="200" type="number">
+        <label for="crate_units_consumed">Consumed Units</label>
+        <input id="crate_units_consumed" [ngModelOptions]="{standalone: true}"
+               [(ngModel)]="newBill.consumedUnits" type="number">
       </div>
 
       <div class="form-item">
-        <label for="total_amount">Total Amount</label>
-        <input id="total_amount" value="100">
+        <label for="create_total_amount">Due Date</label>
+        <input id="create_total_amount" [ngModelOptions]="{standalone: true}"
+               [(ngModel)]="newBill.dueDate" type="date">
       </div>
 
       <!-- issued date & customer details should be posted to database automatically  -->
       <div class="btns_container">
-        <button id="cancel_btn" (click)="onDialogClose()">Cancel</button>
-        <button type="submit" (click)="addBill()">Add Bill</button>
+        <button class="cancel_btn" (click)="onCreateDialogClose()">Cancel</button>
+        <button type="submit">Add Bill</button>
+      </div>
+
+    </form>
+  </div>
+</app-dialog>
+
+<app-dialog (closeDialog)="onPaymentDialogClose()" title="Add Bill" [open]="selectedBill$.getValue() !== undefined">
+  <div>
+    <form (ngSubmit)="payBill()">
+
+
+      <div class="form-item">
+        <label for="payment_units_consumed">Consumed Units</label>
+        <input id="payment_units_consumed" [ngModelOptions]="{standalone: true}"
+               [(ngModel)]="selectedTotalFees" type="number">
+      </div>
+      <div class="btns_container">
+        <button class="cancel_btn" (click)="onPaymentDialogClose()">Cancel</button>
+        <button type="submit">Confirm Payment</button>
       </div>
 
     </form>
@@ -34,17 +57,17 @@
 
   <div class="cards">
     <app-card [title]='"Total Bills"' [unitsUsed]="bills.length.toString()" [icon]='"../../assets/icons/bill.svg"'
-      [iconBackground]='"#C6DCEF"' />
+              [iconBackground]='"#C6DCEF"'/>
     <app-card [title]='"Pending Bills"' [unitsUsed]="pendingBills.length.toString()"
-      [icon]='"../../assets/icons/pending-bill.svg"' [iconBackground]='"#F73F3F"' />
+              [icon]='"../../assets/icons/pending-bill.svg"' [iconBackground]='"#F73F3F"'/>
   </div>
 
-  <app-user-card [customer]="customer" />
+  <app-user-card [customer]="customer"/>
 
-  <button (click)="onDialogOpen()">Add Bill</button>
+  <button (click)="onCreateDialogOpen()">Add Bill</button>
 
   <div class="bill_table">
-    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions" />
+    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions"/>
   </div>
 
 </app-page>

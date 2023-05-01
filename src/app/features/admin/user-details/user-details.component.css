@@ -21,7 +21,7 @@
     justify-content: end;
 }
 
-#cancel_btn{
+.cancel_btn{
     background-color: transparent;
     color: black;
     border: 1px solid gray;

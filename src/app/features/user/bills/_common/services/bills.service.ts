@@ -4,6 +4,11 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../../../../environments/environment";
 import { AuthService } from "../../../../_global/auth/_common/services/auth.service";
 import Bill from "./bill";
+import { formatDate } from "@angular/common";
+import { TableColumns } from "@components/table/table";
+import formatCurrency from "../../../../../../utils/currency-formatter";
+import RatesService from "../../../../_global/auth/_common/services/rates/rates.service";
+import PaymentService from "../../../../_global/auth/_common/services/payment/payment.service";
 
 @Injectable({
     providedIn: "root",
@@ -11,14 +16,19 @@ import Bill from "./bill";
 export default class BillsService {
     constructor(
         private readonly http: HttpClient,
-        private readonly authService: AuthService
+        private readonly authService: AuthService,
+        private readonly paymentService: PaymentService
     ) {}
 
-    columns = [
+    columns: TableColumns = [
         { field: "id", title: "ID" },
-        { field: "name", title: "Title" },
         { field: "type", title: "Type" },
-        { field: "amountFormatted", title: "Amount" },
+        { field: "consumedUnitsFormatted", title: "Consumed Units" },
+        {
+            field: (row) =>
+                formatCurrency(this.paymentService.calculateFees(row as Bill)),
+            title: "Total Fees",
+        },
         { field: "dueDateFormatted", title: "Due Date" },
         {
             field: "paymentDateFormatted",
@@ -40,7 +50,7 @@ export default class BillsService {
                         }`
                     )
                     .subscribe((res) => {
-                        if (!res) return;
+                        if (!res) resolve([]);
                         const data = Object.entries(res).map(([id, value]) =>
                             Bill.fromDTO({ ...value, id })
                         );
@@ -86,6 +96,38 @@ export default class BillsService {
                         resolve(true);
                     });
             });
+        });
+    }
+
+    private idPrefixes: {
+        [key: string]: string;
+    } = {
+        water: "wr",
+        electricity: "el",
+        telephone: "tl",
+    };
+
+    async add(userId: string, data: any): Promise<boolean> {
+        const idNumber = Math.floor(100000 + Math.random() * 900000).toString();
+        const id = `${this.idPrefixes[data["type"]]}-${idNumber}`;
+        const newBill = new Bill(
+            id,
+            data["type"],
+            false,
+            data["consumedUnits"],
+            new Date(),
+            new Date(data["dueDate"])
+        );
+
+        return new Promise((resolve) => {
+            this.http
+                .put(`${environment.baseUrl}/bills/${userId}/${id}.json`, {
+                    ...newBill.toDTO(),
+                })
+                .subscribe((res) => {
+                    if (!res) return;
+                    resolve(true);
+                });
         });
     }
 }

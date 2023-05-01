@@ -17,20 +17,27 @@ import {
                 <ng-container *ngIf="!action.disable?.(row)">
                     <ng-container *ngIf="action.type === 'link'">
                         <a
-
-                                [routerLink]="action.link?.(row)"
-                                class="actionButton"
+                            [routerLink]="action.link?.(row)"
+                            class="actionButton"
                         >
-                            <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
+                            <i
+                                class="material-icons"
+                                *ngIf="action.icon !== undefined"
+                                >{{ action.icon }}</i
+                            >
                             {{ action.text }}
                         </a>
                     </ng-container>
                     <ng-container *ngIf="action.type === 'button'">
                         <button
-                                class="actionButton"
-                                (click)="action.onClick?.(row)"
+                            class="actionButton"
+                            (click)="action.onClick?.(row)"
                         >
-                            <i class="material-icons" *ngIf="action.icon !== undefined">{{ action.icon }}</i>
+                            <i
+                                class="material-icons"
+                                *ngIf="action.icon !== undefined"
+                                >{{ action.icon }}</i
+                            >
                             {{ action.text }}
                         </button>
                     </ng-container>
@@ -50,5 +57,7 @@ export class TableRowComponent {
     getFieldValue = (column: TableColumn, row: TableDataItem) =>
         typeof column.field === "string"
             ? row[column.field]
-            : column.field.reduce((acc: any, field) => acc[field], row);
+            : Array.isArray(column.field)
+            ? column.field.reduce((acc: any, field) => acc[field], row)
+            : column.field(row);
 }

@@ -7,6 +7,7 @@ import BillsService from "../../user/bills/_common/services/bills.service";
 import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import PaymentService from "../../_global/auth/_common/services/payment/payment.service";
+import { FormGroup, NgForm } from "@angular/forms";
 
 @Component({
     selector: "app-user-details",
@@ -19,7 +20,12 @@ export class UserDetailsComponent {
     pendingBills: Array<Bill> = [];
     loading = false;
     id: string;
-    isDialogOpen = false;
+    newBill = {
+        type: "",
+        consumedUnits: 0,
+        dueDate: undefined,
+    };
+    isCreateDialogOpen = false;
     selectedBill$ = new BehaviorSubject<Bill | undefined>(undefined);
     selectedTotalFees = 0;
     actions: TableActions = [
@@ -33,6 +39,8 @@ export class UserDetailsComponent {
         },
     ];
 
+    customerFormGroup: FormGroup = new FormGroup({});
+
     constructor(
         private readonly customersService: CustomersService,
         private readonly billsService: BillsService,
@@ -45,10 +53,7 @@ export class UserDetailsComponent {
 
         this.selectedBill$.subscribe((bill) => {
             if (!bill) return;
-            this.isDialogOpen = true;
-            this.paymentService
-                .calculateFees(bill, 100)
-                .then((totalFees) => (this.selectedTotalFees = totalFees));
+            this.selectedTotalFees = this.paymentService.calculateFees(bill);
         });
     }
 
@@ -62,15 +67,40 @@ export class UserDetailsComponent {
         this.pendingBills = this.bills.filter((bill) => !bill.paid);
     }
 
-    addBill() {
-        // call service for adding bill
-        this.onDialogClose();
-    }
-    onDialogOpen() {
-        this.isDialogOpen = true;
+    async addBill() {
+        const isCreated = await this.billsService.add(this.id, this.newBill);
+        if (!isCreated) return;
+        // TODO Success Indicator
+        await this.fetchData();
+        this.newBill = {
+            type: "",
+            consumedUnits: 0,
+            dueDate: undefined,
+        };
+        this.onCreateDialogClose();
     }
 
-    onDialogClose() {
-        this.isDialogOpen = false;
+    async payBill() {
+        const isPaid = await this.paymentService.pay(
+            this.selectedBill$.getValue() as Bill,
+            this.id,
+            this.selectedTotalFees
+        );
+        if (!isPaid) return;
+        // TODO Success Indicator
+        await this.fetchData();
+        this.selectedBill$.next(undefined);
+    }
+
+    onCreateDialogOpen() {
+        this.isCreateDialogOpen = true;
+    }
+
+    onCreateDialogClose() {
+        this.isCreateDialogOpen = false;
+    }
+
+    onPaymentDialogClose() {
+        this.selectedBill$.next(undefined);
     }
 }

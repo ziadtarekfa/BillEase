@@ -1,22 +1,19 @@
+import formatCurrency from "../../../../../../utils/currency-formatter";
+
 export default class Bill {
     constructor(
         public id: string,
-        public name: string,
-        public amount: number,
-        public paid: boolean,
         public type: string,
+        public paid: boolean,
         public consumedUnits: number,
         public createdAt: Date,
-        public paidAmount?: number,
         public dueDate?: Date,
-        public paymentDate?: Date
+        public paymentDate?: Date,
+        public paidAmount?: number
     ) {}
 
     get amountFormatted(): string {
-        return new Intl.NumberFormat("en-EG", {
-            style: "currency",
-            currency: "EGP",
-        }).format(this.amount);
+        return formatCurrency(1);
     }
 
     get dueDateFormatted(): string {
@@ -27,8 +24,11 @@ export default class Bill {
 
     get paymentDateFormatted(): string {
         return this.paid
-            ? "Paid at " +
-                  new Intl.DateTimeFormat().format(this.paymentDate).toString()
+            ? `Paid ${formatCurrency(
+                  this.paidAmount
+              )} at ${new Intl.DateTimeFormat()
+                  .format(this.paymentDate)
+                  .toString()}`
             : "Not paid yet";
     }
 
@@ -49,8 +49,12 @@ export default class Bill {
         }
     }
 
+    get consumedUnitsFormatted(): string {
+        return `${this.consumedUnits} ${this.unit}`;
+    }
+
     get totalFees(): number {
-        return this.amount + 1;
+        return 1;
     }
 
     get overdueFees(): number {
@@ -58,21 +62,32 @@ export default class Bill {
     }
 
     get billFees(): number {
-        return this.amount;
+        return 1;
     }
 
     static fromDTO(dto: any): Bill {
         return new Bill(
             dto.id,
-            dto.name,
-            dto.amount,
-            dto.paid,
             dto.type,
-            dto.consumedUnits ?? 100,
+            dto.paid,
+            dto.consumedUnits ?? 0,
             dto.createdAt ? new Date(dto.createdAt) : new Date(),
-            dto.paidAmount ?? 0,
             dto.dueDate ? new Date(dto.dueDate) : undefined,
-            dto.paymentDate ? new Date(dto.paymentDate) : undefined
+            dto.paymentDate ? new Date(dto.paymentDate) : undefined,
+            dto.paidAmount ?? 0
         );
+    }
+
+    toDTO(): any {
+        return {
+            id: this.id,
+            type: this.type,
+            paid: this.paid,
+            consumedUnits: this.consumedUnits,
+            createdAt: this.createdAt.toISOString(),
+            dueDate: this.dueDate?.toISOString(),
+            paymentDate: this.paymentDate?.toISOString(),
+            paidAmount: this.paidAmount,
+        };
     }
 }
