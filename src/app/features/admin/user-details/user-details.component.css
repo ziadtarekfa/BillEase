@@ -1,3 +1,7 @@
+span {
+    color: red;
+}
+
 .cards {
     display: flex;
     width: 55%;
@@ -16,12 +20,12 @@
     flex: 1;
 }
 
-.btns_container{
+.btns_container {
     display: flex;
     justify-content: end;
 }
 
-.cancel_btn{
+.cancel_btn {
     background-color: transparent;
     color: black;
     border: 1px solid gray;

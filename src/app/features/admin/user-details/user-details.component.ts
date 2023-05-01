@@ -7,7 +7,7 @@ import BillsService from "../../user/bills/_common/services/bills.service";
 import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import PaymentService from "../../_global/auth/_common/services/payment/payment.service";
-import { FormGroup, NgForm } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "app-user-details",
@@ -16,15 +16,11 @@ import { FormGroup, NgForm } from "@angular/forms";
 })
 export class UserDetailsComponent {
     customer?: Customer;
+    addBillForm: FormGroup;
     bills: Array<Bill> = [];
     pendingBills: Array<Bill> = [];
     loading = false;
     id: string;
-    newBill = {
-        type: "",
-        consumedUnits: 0,
-        dueDate: undefined,
-    };
     isCreateDialogOpen = false;
     selectedBill$ = new BehaviorSubject<Bill | undefined>(undefined);
     selectedTotalFees = 0;
@@ -45,8 +41,15 @@ export class UserDetailsComponent {
         private readonly customersService: CustomersService,
         private readonly billsService: BillsService,
         private readonly paymentService: PaymentService,
-        private readonly route: ActivatedRoute
+        private readonly route: ActivatedRoute,
+        private fb: FormBuilder
     ) {
+        this.addBillForm = this.fb.group({
+            billType: ["", [Validators.required]],
+            unitsConsumed: ["", [Validators.required]],
+            dueDate: ["", [Validators.required]]
+        });
+
         this.id = (this.route.params as BehaviorSubject<any>).getValue().userId;
         this.loading = true;
         this.fetchData().then(() => (this.loading = false));
@@ -68,15 +71,15 @@ export class UserDetailsComponent {
     }
 
     async addBill() {
-        const isCreated = await this.billsService.add(this.id, this.newBill);
+        const newBill = {
+            type: this.addBillForm.get('billType')?.value,
+            consumedUnits: this.addBillForm.get('unitsConsumed')?.value,
+            dueDate: this.addBillForm.get('dueDate')?.value
+        }
+        const isCreated = await this.billsService.add(this.id, newBill);
         if (!isCreated) return;
-        // TODO Success Indicator
+
         await this.fetchData();
-        this.newBill = {
-            type: "",
-            consumedUnits: 0,
-            dueDate: undefined,
-        };
         this.onCreateDialogClose();
     }
 
