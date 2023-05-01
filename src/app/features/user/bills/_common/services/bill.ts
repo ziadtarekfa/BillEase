@@ -41,7 +41,7 @@ export default class Bill {
             case "electricity":
                 return "kWh";
             case "water":
-                return "m3";
+                return "liter";
             case "telephone":
                 return "minutes";
             default:
