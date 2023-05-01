@@ -19,6 +19,7 @@ export class PaymentComponent {
     id: string;
     successfulPayment$ = new BehaviorSubject(false);
     loading = false;
+
     constructor(
         private readonly billsService: BillsService,
         private readonly authService: AuthService,
@@ -38,18 +39,20 @@ export class PaymentComponent {
         });
         this.paymentForm = this.fb.group({
             cardHolderName: ["", [Validators.required]],
-            cardNumber: ["",
+            cardNumber: [
+                "",
                 [
                     // should start with 4 or 5 and can be 13 digits or 16 digits
                     Validators.required,
-                    Validators.pattern(
-                        "^[4-5][0-9]{12}(?:[0-9]{3})?$"
-                    ),
+                    Validators.pattern("^[4-5][0-9]{12}(?:[0-9]{3})?$"),
                 ],
             ],
             expiryDate: ["", [Validators.required]],
             // should be 3 or 4 digits
-            cvv: ["", [Validators.required, Validators.pattern('^[0-9]{3,4}$')]],
+            cvv: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]{3,4}$")],
+            ],
         });
     }
 
@@ -61,7 +64,8 @@ export class PaymentComponent {
     }
 
     async confirmPayment() {
-        console.log(this.paymentForm);
-        // this.successfulPayment$.next(await this.billsService.pay(this.id));
+        this.successfulPayment$.next(
+            await this.billsService.pay(this.id, this.bill as Bill)
+        );
     }
 }

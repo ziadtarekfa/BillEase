@@ -78,7 +78,7 @@ export default class BillsService {
         });
     }
 
-    async pay(id: string): Promise<boolean> {
+    async pay(id: string, bill: Bill): Promise<boolean> {
         return new Promise((resolve) => {
             this.authService.currentUser.subscribe((user) => {
                 if (!user) return;
@@ -89,6 +89,7 @@ export default class BillsService {
                         {
                             paymentDate: new Date().toISOString(),
                             paid: true,
+                            paidAmount: this.paymentService.calculateFees(bill),
                         }
                     )
                     .subscribe((res) => {
