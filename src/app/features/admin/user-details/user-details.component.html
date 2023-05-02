@@ -38,15 +38,17 @@
   </div>
 </app-dialog>
 
-<app-dialog (closeDialog)="onPaymentDialogClose()" title="Add Bill" [open]="selectedBill$.getValue() !== undefined">
+<app-dialog (closeDialog)="onPaymentDialogClose()" title="Receive Payment"
+  [open]="selectedBill$.getValue() !== undefined">
   <div>
-    <form (ngSubmit)="payBill()">
-
+    <form [formGroup]="receivePaymentForm" (ngSubmit)="payBill()">
 
       <div class="form-item">
         <label for="payment_units_consumed">Consumed Units</label>
-        <input id="payment_units_consumed" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedTotalFees"
-          type="number">
+        <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" type="number"
+          formControlName="consumedUnits">
+        <span *ngIf="receivePaymentForm.controls['consumedUnits'].hasError('required') 
+          && receivePaymentForm.controls['consumedUnits'].touched"> Consumed units is required </span>
       </div>
       <div class="btns_container">
         <button class="cancel_btn" (click)="onPaymentDialogClose()">Cancel</button>

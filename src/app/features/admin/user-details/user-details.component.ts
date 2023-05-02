@@ -16,6 +16,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class UserDetailsComponent {
     customer?: Customer;
+    receivePaymentForm:FormGroup;
     addBillForm: FormGroup;
     bills: Array<Bill> = [];
     pendingBills: Array<Bill> = [];
@@ -48,6 +49,9 @@ export class UserDetailsComponent {
             billType: ["", [Validators.required]],
             unitsConsumed: ["", [Validators.required]],
             dueDate: ["", [Validators.required]]
+        });
+        this.receivePaymentForm = this.fb.group({
+            consumedUnits:["",[Validators.required]]
         });
 
         this.id = (this.route.params as BehaviorSubject<any>).getValue().userId;
