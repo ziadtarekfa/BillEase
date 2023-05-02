@@ -8,6 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import PaymentService from "../../_global/auth/_common/services/payment/payment.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { dateValidator } from "../../_global/validators/DateValidator";
 
 @Component({
     selector: "app-user-details",
@@ -47,11 +48,11 @@ export class UserDetailsComponent {
     ) {
         this.addBillForm = this.fb.group({
             billType: ["", [Validators.required]],
-            unitsConsumed: ["", [Validators.required]],
-            dueDate: ["", [Validators.required]]
+            unitsConsumed: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
+            dueDate: ["", [Validators.required, dateValidator]]
         });
         this.receivePaymentForm = this.fb.group({
-            totalFees: ["", [Validators.required, Validators.pattern("^[1-9]*$")]]
+            totalFees: ["", [Validators.required, Validators.pattern("^[0-9]*$")]]
         });
 
         this.id = (this.route.params as BehaviorSubject<any>).getValue().userId;

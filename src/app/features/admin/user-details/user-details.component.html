@@ -18,6 +18,9 @@
 
         <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('required') 
         && addBillForm.controls['unitsConsumed'].touched"> Units consumed is required </span>
+
+        <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('pattern') 
+        && addBillForm.controls['unitsConsumed'].touched"> Units consumed should be a positive number </span>
       </div>
 
       <div class="form-item">
@@ -26,6 +29,9 @@
 
         <span *ngIf="addBillForm.controls['dueDate'].hasError('required') 
         && addBillForm.controls['dueDate'].touched"> Due date is required </span>
+
+        <span *ngIf="addBillForm.controls['dueDate'].hasError('isPast') 
+        && addBillForm.controls['dueDate'].touched"> Due date cannot be in the past or today</span>
       </div>
 
       <!-- issued date & customer details should be posted to database automatically  -->
@@ -45,12 +51,12 @@
 
       <div class="form-item">
         <label for="payment_units_consumed">Total Fees</label>
-        <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" type="number" formControlName="totalFees">
+        <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" formControlName="totalFees">
         <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('required') 
           && receivePaymentForm.controls['totalFees'].touched"> Total fees is required </span>
 
         <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('pattern') 
-          && receivePaymentForm.controls['totalFees'].touched"> Total fees should be greater than 0 </span>
+          && receivePaymentForm.controls['totalFees'].touched"> Total fees should be a positive number </span>
 
       </div>
       <div class="btns_container">

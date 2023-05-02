@@ -17,7 +17,7 @@
           <span class="red_color" *ngIf="ratesForm.controls[config.name+'_unit_cost'].hasError('required') 
             && ratesForm.controls[config.name+'_unit_cost'].touched"> Unit cost is required </span>
           <span class="red_color" *ngIf="ratesForm.controls[config.name+'_unit_cost'].hasError('pattern') 
-            && ratesForm.controls[config.name+'_unit_cost'].touched"> Only positive numbers are allowed </span>
+            && ratesForm.controls[config.name+'_unit_cost'].touched"> Unit cost should be a positive number </span>
         </div>
 
         <div class="form-item">
@@ -29,7 +29,7 @@
           <span class="red_color" *ngIf="ratesForm.controls[config.name+'_overdue_cost'].hasError('required') 
             && ratesForm.controls[config.name+'_overdue_cost'].touched"> Overdue cost is required </span>
           <span class="red_color" *ngIf="ratesForm.controls[config.name+'_overdue_cost'].hasError('pattern') 
-          && ratesForm.controls[config.name+'_overdue_cost'].touched"> Only positive numbers are allowed </span>
+          && ratesForm.controls[config.name+'_overdue_cost'].touched"> Overdue cost should be a positive number </span>
 
         </div>
       </div>
