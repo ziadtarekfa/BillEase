@@ -44,7 +44,7 @@
     <form [formGroup]="receivePaymentForm" (ngSubmit)="payBill()">
 
       <div class="form-item">
-        <label for="payment_units_consumed">Consumed Units</label>
+        <label for="payment_units_consumed">Total Fees</label>
         <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" type="number"
           formControlName="consumedUnits">
         <span *ngIf="receivePaymentForm.controls['consumedUnits'].hasError('required') 
