@@ -45,10 +45,13 @@
 
       <div class="form-item">
         <label for="payment_units_consumed">Total Fees</label>
-        <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" type="number"
-          formControlName="consumedUnits">
-        <span *ngIf="receivePaymentForm.controls['consumedUnits'].hasError('required') 
-          && receivePaymentForm.controls['consumedUnits'].touched"> Consumed units is required </span>
+        <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" type="number" formControlName="totalFees">
+        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('required') 
+          && receivePaymentForm.controls['totalFees'].touched"> Total fees is required </span>
+
+        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('pattern') 
+          && receivePaymentForm.controls['totalFees'].touched"> Total fees should be greater than 0 </span>
+
       </div>
       <div class="btns_container">
         <button class="cancel_btn" (click)="onPaymentDialogClose()">Cancel</button>
