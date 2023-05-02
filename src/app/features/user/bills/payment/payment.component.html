@@ -43,13 +43,19 @@
 
         <div class="form-item" id="expiryDateField">
           <label for="expiryDate">Expiry Date</label>
-          <input type="date"  id="expiryDate" placeholder="12/34" formControlName="expiryDate">
+          <input type="date" id="expiryDate" placeholder="12/34" formControlName="expiryDate">
           <span
             *ngIf="paymentForm.controls['expiryDate'].hasError('required') && paymentForm.controls['expiryDate'].touched">Expiry
-            Date
+            date
             is
             required</span>
-            
+
+          <span
+            *ngIf="paymentForm.controls['expiryDate'].hasError('isPast') && paymentForm.controls['expiryDate'].touched">Expiry
+            date
+            is invalid
+          </span>
+
         </div>
 
         <div class="form-item" id="cvvField">

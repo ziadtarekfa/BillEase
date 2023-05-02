@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import User from "../../../_global/auth/_common/models/user";
 import { AuthService } from "../../../_global/auth/_common/services/auth.service";
+import { dateValidator } from "src/app/features/_global/validators/DateValidator";
 
 @Component({
     selector: "app-payment",
@@ -47,7 +48,7 @@ export class PaymentComponent {
                     Validators.pattern("^[4-5][0-9]{12}(?:[0-9]{3})?$"),
                 ],
             ],
-            expiryDate: ["", [Validators.required]],
+            expiryDate: ["", [Validators.required, dateValidator]],
             // should be 3 or 4 digits
             cvv: [
                 "",
