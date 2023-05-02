@@ -1,3 +1,7 @@
+.red_color {
+  color: red;
+}
+
 .header {
   display: flex;
   align-items: center;

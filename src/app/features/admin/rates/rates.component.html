@@ -1,5 +1,5 @@
 <app-page title="Rates" [loading]="loading" subtitle="Manage unit cost for electricity, water and telephone">
-  <form (ngSubmit)="onSave()">
+  <form [formGroup]="ratesForm" (ngSubmit)="onSave()">
     <section class="section" *ngFor="let config of Object.values(configs)">
       <header class="header">
         <div class="img-container" [ngStyle]="{'background-color':config.backgroundColor}">
@@ -12,18 +12,26 @@
         <div class="form-item">
           <label [for]="config.name+'-unit-cost'">Unit Cost <span>(in {{config.unit}})</span></label>
           <input [(ngModel)]="config['unitCost']" [name]="config.name+'-unit-cost'" [id]="config.name+'-unit-cost'"
-            type="number" min="0" [placeholder]="'example:  1 EGP/' + config.unit" />
+            type="number" min="0" [placeholder]="'example:  1 EGP/' + config.unit"
+            [formControlName]="config.name+'_unit_cost'" />
+
+          <span class="red_color" *ngIf="ratesForm.controls[config.name+'_unit_cost'].hasError('required') 
+            && ratesForm.controls[config.name+'_unit_cost'].touched"> Units consumed is required </span>
         </div>
         <div class="form-item">
           <label [for]="config.name+'-overdue-cost'">Overdue Cost <span>(in {{config.unit}})</span></label>
           <input [name]="config.name+'-overdue-cost'" [id]="config.name+'-overdue-cost'" type="number" min="0"
-            [placeholder]="'example:  30 EGP '" [(ngModel)]="config['overdueFees']" />
+            [placeholder]="'example:  30 EGP '" [(ngModel)]="config['overdueFees']"
+            [formControlName]="config.name+'_overdue_cost'" />
+
+          <span class="red_color" *ngIf="ratesForm.controls[config.name+'_overdue_cost'].hasError('required') 
+            && ratesForm.controls[config.name+'_overdue_cost'].touched"> Overdue cost is required </span>
         </div>
       </div>
 
-
       <div class="divider"></div>
     </section>
+
     <div class="button-container">
       <button type="submit" class="button">
         Save

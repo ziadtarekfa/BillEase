@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Rates } from "../../_global/auth/_common/services/rates/rate";
 import { Router } from "@angular/router";
 import RatesService from "../../_global/auth/_common/services/rates/rates.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
     selector: "app-rates",
@@ -12,6 +13,7 @@ export class RatesComponent {
 
     isSuccessful = false;
     loading = false;
+    ratesForm: FormGroup;
     configs = {
         electricity: {
             title: "Electricity",
@@ -20,7 +22,7 @@ export class RatesComponent {
             name: "electricity",
             unitCost: 4,
             overdueFees: 10,
-            backgroundColor: '#FFF7F0'
+            backgroundColor: '#FFF7F0',
         },
         water: {
             title: "Water",
@@ -43,7 +45,15 @@ export class RatesComponent {
     };
 
 
-    constructor(private readonly ratesService: RatesService, private readonly router: Router) {
+    constructor(private readonly ratesService: RatesService, private readonly router: Router, private fb: FormBuilder) {
+        this.ratesForm = this.fb.group({
+            electricity_unit_cost: ["", [Validators.required]],
+            electricity_overdue_cost: ["", [Validators.required]],
+            water_unit_cost: ["", [Validators.required]],
+            water_overdue_cost: ["", [Validators.required]],
+            telephone_unit_cost: ["", [Validators.required]],
+            telephone_overdue_cost: ["", [Validators.required]],
+        })
         this.loading = true;
         this.fetchRates().then(() => (this.loading = false));
 
