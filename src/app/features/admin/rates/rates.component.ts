@@ -47,12 +47,12 @@ export class RatesComponent {
 
     constructor(private readonly ratesService: RatesService, private readonly router: Router, private fb: FormBuilder) {
         this.ratesForm = this.fb.group({
-            electricity_unit_cost: ["", [Validators.required]],
-            electricity_overdue_cost: ["", [Validators.required]],
-            water_unit_cost: ["", [Validators.required]],
-            water_overdue_cost: ["", [Validators.required]],
-            telephone_unit_cost: ["", [Validators.required]],
-            telephone_overdue_cost: ["", [Validators.required]],
+            electricity_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
+            electricity_overdue_cost: ["", [Validators.required, Validators.pattern("^[1-9]*$")]],
+            water_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
+            water_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
+            telephone_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
+            telephone_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
         })
         this.loading = true;
         this.fetchRates().then(() => (this.loading = false));
