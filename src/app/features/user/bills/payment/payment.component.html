@@ -67,7 +67,7 @@
             Invalid</span>
         </div>
 
-        <button type="submit">Confirm Payment</button>
+        <button type="submit" [disabled]="paymentForm.invalid">Confirm Payment</button>
       </form>
     </section>
   </div>

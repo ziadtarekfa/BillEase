@@ -83,12 +83,6 @@
   background: var(--color-primary);
 }
 
-.card-info button:disabled {
-  background: lightgray;
-  color: white;
-  cursor: not-allowed;
-}
-
 .success-container {
   position: absolute;
   background-color: var(--color-surface);

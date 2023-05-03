@@ -127,9 +127,8 @@ img {
   background: var(--color-primary);
 }
 
-.button:disabled {
-  background: lightgray;
-  color: white;
+button:disabled {
+  opacity: 0.3;
   cursor: not-allowed;
 }
 

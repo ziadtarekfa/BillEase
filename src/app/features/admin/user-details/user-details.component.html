@@ -14,7 +14,7 @@
 
       <div class="form-item">
         <label for="crate_units_consumed">Consumed Units</label>
-        <input id="crate_units_consumed" formControlName="unitsConsumed" type="number">
+        <input id="crate_units_consumed" formControlName="unitsConsumed">
 
         <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('required') 
         && addBillForm.controls['unitsConsumed'].touched"> Units consumed is required </span>
@@ -36,13 +36,15 @@
 
       <!-- issued date & customer details should be posted to database automatically  -->
       <div class="btns_container">
-        <button class="cancel_btn" (click)="onCreateDialogClose()">Cancel</button>
-        <button type="submit">Add Bill</button>
+        <button class="cancel_btn" type="reset" (click)="onCreateDialogClose()">Cancel</button>
+        <button type="submit" [disabled]="addBillForm.invalid">Add Bill</button>
       </div>
 
     </form>
   </div>
 </app-dialog>
+
+<!-- DIVIDER -->
 
 <app-dialog (closeDialog)="onPaymentDialogClose()" title="Receive Payment"
   [open]="selectedBill$.getValue() !== undefined">
@@ -60,8 +62,8 @@
 
       </div>
       <div class="btns_container">
-        <button class="cancel_btn" (click)="onPaymentDialogClose()">Cancel</button>
-        <button type="submit">Confirm Payment</button>
+        <button class="cancel_btn" type="reset" (click)="onPaymentDialogClose()">Cancel</button>
+        <button type="submit" [disabled]="receivePaymentForm.invalid">Confirm Payment</button>
       </div>
 
     </form>
