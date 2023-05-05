@@ -46,6 +46,11 @@ export const environment = {
                 name: "Rates",
                 icon: "assets/icons/home.svg",
             },
+            {
+                path: "/admin/telephone-configuration",
+                name: "Telephone Configs",
+                icon: "assets/icons/home.svg",
+            },
         ],
     },
 };

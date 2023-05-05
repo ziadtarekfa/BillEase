@@ -1,0 +1,23 @@
+<app-dialog title="Add Service Provider" [open]="isAddServiceOpen" (closeDialog)="onAddServiceClose()">
+  <form [formGroup]="addServiceProviderForm" (ngSubmit)="addServiceProvider()">
+
+    <div class="form-item">
+      <label for="service_provider_name">Name</label>
+      <input id="service_provider_name" formControlName="name">
+
+      <span *ngIf="addServiceProviderForm.controls['name'].hasError('required')
+        && addServiceProviderForm.controls['name'].touched"> Name is required </span>
+    </div>
+    <div class="btns_container">
+      <button class="button" type="submit" [disabled]="addServiceProviderForm.invalid">Add</button>
+    </div>
+
+  </form>
+</app-dialog>
+
+<app-page title="Telephone Configuration" subtitle="Add service providers and customize their offers">
+  <div style="margin-bottom: 32px;display:flex;justify-content: flex-end">
+    <button (click)="onOpenAddService()" class="button">Add Service Provider</button>
+  </div>
+  <app-table [columns]="serviceProvidersColumns" [data]="data" [actions]="actions" [loading]="loading"/>
+</app-page>

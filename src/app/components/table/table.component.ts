@@ -17,9 +17,7 @@ export class TableComponent implements OnInit, OnChanges {
     @Input() columns: TableColumns = [];
     @Input() data: TableData = [];
     @Input() loading = false;
-    @Input() actions: TableActions = [
-
-    ];
+    @Input() actions: TableActions = [];
     actualLoading = this.loading;
     actualData: TableData = this.data;
     private actualData$ = new BehaviorSubject<TableData>(this.actualData);
@@ -51,8 +49,8 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.actualData$.next(changes["data"].currentValue);
-        this.actualLoading = changes["loading"].currentValue;
+        this.actualData$.next(changes["data"]?.currentValue ?? []);
+        this.actualLoading = changes["loading"]?.currentValue ?? false;
     }
 
     setPaginatedData(data: TableData) {

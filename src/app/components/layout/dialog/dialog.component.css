@@ -35,6 +35,8 @@
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  overflow: auto;
+
 }
 
 .dialog__content header {
@@ -51,6 +53,7 @@
   width: 100%;
   overflow: auto;
   height: 100%;
+
 }
 
 .dialog.closed {

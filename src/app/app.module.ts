@@ -31,13 +31,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { LoadingComponent } from "./components/loading/loading.component";
 import { PaymentComponent } from "./features/user/bills/payment/payment.component";
 import { BillsTableComponent } from "./features/user/bills/bills-table/bills-table.component";
-import { BillSummaryComponent } from './features/_global/bill-summary/bill-summary.component';
-import { InputComponent } from './components/form/input/input.component';
+import { BillSummaryComponent } from "./features/_global/bill-summary/bill-summary.component";
+import { InputComponent } from "./components/form/input/input.component";
 import { DashboardAdminComponent } from "./features/admin/dashboard-admin/dashboard-admin.component";
-import { RatesComponent } from './features/admin/rates/rates.component';
-import { UserDetailsComponent } from './features/admin/user-details/user-details.component';
-import { DialogComponent } from './components/layout/dialog/dialog.component';
-import { UserCardComponent } from './features/admin/user-card/user-card.component';
+import { RatesComponent } from "./features/admin/rates/rates.component";
+import { UserDetailsComponent } from "./features/admin/user-details/user-details.component";
+import { DialogComponent } from "./components/layout/dialog/dialog.component";
+import { UserCardComponent } from "./features/admin/user-card/user-card.component";
+import { ServiceProvidersComponent } from "./features/admin/telephone-config/service-providers/service-providers.component";
+import { ServiceProviderInfoComponent } from "./features/admin/telephone-config/service-provider-info/service-provider-info.component";
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -67,8 +70,10 @@ import { UserCardComponent } from './features/admin/user-card/user-card.componen
         UserDetailsComponent,
         DialogComponent,
         UserCardComponent,
+        ServiceProvidersComponent,
+        ServiceProviderInfoComponent,
     ],
-    
+
     imports: [
         BrowserModule,
         HttpClientModule,
@@ -84,9 +89,20 @@ import { UserCardComponent } from './features/admin/user-card/user-card.componen
             { path: "telephone", component: TelephoneComponent },
             { path: "dashboard", component: DashboardComponent },
             { path: "", component: DashboardRouterComponent },
-            { path: 'admin/dashboard', component: DashboardAdminComponent },
-            { path: 'admin/rates', component: RatesComponent },
-            { path: 'admin/user-details/:userId', component: UserDetailsComponent }
+            { path: "admin/dashboard", component: DashboardAdminComponent },
+            { path: "admin/rates", component: RatesComponent },
+            {
+                path: "admin/user-details/:userId",
+                component: UserDetailsComponent,
+            },
+            {
+                path: "admin/telephone-configuration",
+                component: ServiceProvidersComponent,
+            },
+            {
+                path: "admin/service-providers/:id",
+                component: ServiceProviderInfoComponent,
+            },
         ]),
         FormsModule,
         ReactiveFormsModule,
@@ -101,4 +117,4 @@ import { UserCardComponent } from './features/admin/user-card/user-card.componen
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

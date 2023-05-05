@@ -68,6 +68,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  margin-bottom: 12px;
 }
 
 .form-item label {
@@ -135,4 +136,22 @@ button:disabled {
 
 .button.full {
   width: 100%;
+}
+
+
+.btns_container {
+  display: flex;
+  justify-content: end;
+}
+
+.cancel_btn {
+  background-color: transparent;
+  color: black;
+  border: 1px solid gray;
+  margin-right: 10px;
+}
+
+form span {
+  color: red;
+  margin-top: 5px;
 }

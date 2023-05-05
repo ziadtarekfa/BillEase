@@ -1,0 +1,60 @@
+<app-dialog title="Add Offer" [open]="isAddOfferOpen" (closeDialog)="onAddServiceClose()">
+  <form [formGroup]="addOfferForm" (ngSubmit)="addOffer()">
+    <div class="form-item">
+      <label for="service_provider_name">Name</label>
+      <input id="service_provider_name" formControlName="name">
+
+      <span *ngIf="addOfferForm.controls['name'].hasError('required')
+        && addOfferForm.controls['name'].touched"> Name is required </span>
+    </div>
+    <div class="form-item">
+      <label for="create_offer_type">Offer Type</label>
+      <select id="create_offer_type" formControlName="offerType">
+        <option value="prepaid">Prepaid</option>
+        <option value="postpaid">Postpaid</option>
+      </select>
+      <span *ngIf="addOfferForm.controls['offerType'].hasError('required')
+        && addOfferForm.controls['offerType'].touched"> Bill type is required </span>
+    </div>
+    <div *ngIf="(addOfferForm.controls['offerType'].value?.toString() ?? '') === 'postpaid'">
+      <div class="form-item">
+        <label for="cost_per_unit">Cost Per Minute</label>
+        <input id="cost_per_unit" formControlName="costPerMinute">
+
+        <span *ngIf="addOfferForm.controls['costPerMinute'].hasError('required')
+        && addOfferForm.controls['costPerMinute'].touched">Cost Per Minute is required</span>
+      </div>
+    </div>
+    <ng-template [ngIf]="(addOfferForm.controls['offerType'].value?.toString() ?? '') === 'prepaid'">
+      <div class="form-item">
+        <label for="units">Units</label>
+        <input id="units" formControlName="units">
+
+        <span *ngIf="addOfferForm.controls['units'].hasError('required')
+        && addOfferForm.controls['units'].touched"> Units is required </span>
+      </div>
+      <div class="form-item">
+        <label for="cost">Cost</label>
+        <input id="cost" formControlName="unitsCost">
+
+        <span *ngIf="addOfferForm.controls['unitsCost'].hasError('required')
+        && addOfferForm.controls['unitsCost'].touched"> Cost is required </span>
+      </div>
+    </ng-template>
+    <div class="btns_container">
+      <button class="button" type="submit" [disabled]="addOfferForm.invalid">Add</button>
+    </div>
+
+  </form>
+</app-dialog>
+
+<app-page [title]="'Service Provider Info: ' + (serviceProvider?.name ?? '')"
+          subtitle="Details about service provider's offers and plans" [loading]="loading">
+
+
+  <div style="margin-bottom: 32px;display:flex;justify-content: flex-end">
+    <button (click)="onOpenAddOffer()" class="button">Add Offer</button>
+  </div>
+  <app-table [columns]="offersColumns" [data]="data" [actions]="actions" [loading]="loading"/>
+
+</app-page>
