@@ -1,0 +1,52 @@
+<app-dialog [open]="isSubscriptionSuccessful">
+<!--TODO-->
+</app-dialog>
+
+<app-page title="Subscribe to Offer"
+          subtitle="Select an offer from either a prepaid or a postpaid collection"
+          [loading]="loading">
+  <div></div>
+  <div class="serviceList">
+    <div class="serviceProviderCard" *ngFor="let serviceProvider of serviceProviders">
+      <div class="ServiceProviderHeader">
+        <div class="serviceProviderLogo" [style]="'background: ' + serviceProvider.color">
+          {{serviceProvider.shortName}}
+        </div>
+        <h2>
+          {{serviceProvider.name}}
+        </h2>
+      </div>
+      <div class="offersListContainer">
+        <div class="offerContainer">
+          <h3>Postpaid</h3>
+          <ul>
+            <li *ngFor="let offer of serviceProvider.postpaidOffers">
+              {{offer.name}}
+              <span>
+              Cost Per Minute: {{offer.costPerMinute}}
+            </span>
+            </li>
+          </ul>
+        </div>
+        <div class="offerContainer">
+          <h3>Prepaid</h3>
+          <ul>
+            <li *ngFor="let offer of serviceProvider.prepaidOffers" (click)="subscribe(offer)">
+              {{offer.name}}
+              <span>
+              <span>
+                Available Minutes: {{offer.units}}
+              </span>
+                <span style="margin-inline: 8px">•</span>
+              <span>
+                Cost: {{offer.unitsCost}}
+              </span>
+            </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</app-page>

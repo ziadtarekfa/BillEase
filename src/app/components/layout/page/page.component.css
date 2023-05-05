@@ -25,6 +25,7 @@
   transition: all .2s ease-in-out;
   padding-block: 32px 24px;
   width: 100%;
+  z-index: 100;
 
 }
 

@@ -65,6 +65,7 @@ export class AuthService {
         const subject = new BehaviorSubject<{
             type: UserType;
             profile?: User;
+            telephoneOffer?: object;
         } | null>(null);
         this.fireAuth.user.subscribe((authUser) => {
             const uid = authUser?.uid;
@@ -76,7 +77,8 @@ export class AuthService {
                         authUser?.email ?? "",
                         authUser?.displayName ?? "",
                         userEntry?.phone ?? "",
-                        userEntry.userType
+                        userEntry.userType,
+                        userEntry.telephoneOffer
                     );
                     subject.next({ type: userEntry.userType, profile: user });
                 });

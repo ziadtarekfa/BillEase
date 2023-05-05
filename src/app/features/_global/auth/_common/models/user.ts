@@ -10,6 +10,7 @@ export default class User {
         public email: string,
         public name: string,
         public phone: string,
-        public type: UserType
+        public type: UserType,
+        public telephoneOffer?: object
     ) {}
 }

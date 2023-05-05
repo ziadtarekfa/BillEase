@@ -40,6 +40,7 @@ import { DialogComponent } from "./components/layout/dialog/dialog.component";
 import { UserCardComponent } from "./features/admin/user-card/user-card.component";
 import { ServiceProvidersComponent } from "./features/admin/telephone-config/service-providers/service-providers.component";
 import { ServiceProviderInfoComponent } from "./features/admin/telephone-config/service-provider-info/service-provider-info.component";
+import { TelephoneSubscribeComponent } from "./features/user/bills/telephon-subscribe/telephone-subscribe.component";
 
 @NgModule({
     declarations: [
@@ -72,6 +73,7 @@ import { ServiceProviderInfoComponent } from "./features/admin/telephone-config/
         UserCardComponent,
         ServiceProvidersComponent,
         ServiceProviderInfoComponent,
+        TelephoneSubscribeComponent,
     ],
 
     imports: [
@@ -88,6 +90,10 @@ import { ServiceProviderInfoComponent } from "./features/admin/telephone-config/
             { path: "electricity", component: ElectricityComponent },
             { path: "telephone", component: TelephoneComponent },
             { path: "dashboard", component: DashboardComponent },
+            {
+                path: "telephone-subscribe",
+                component: TelephoneSubscribeComponent,
+            },
             { path: "", component: DashboardRouterComponent },
             { path: "admin/dashboard", component: DashboardAdminComponent },
             { path: "admin/rates", component: RatesComponent },
