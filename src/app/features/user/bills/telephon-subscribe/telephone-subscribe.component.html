@@ -20,7 +20,7 @@
         <div class="offerContainer">
           <h3>Postpaid</h3>
           <ul>
-            <li *ngFor="let offer of serviceProvider.postpaidOffers">
+            <li *ngFor="let offer of serviceProvider.postpaidOffers" (click)="subscribe(offer)">
               {{offer.name}}
               <span>
               Cost Per Minute: {{offer.costPerMinute}}
