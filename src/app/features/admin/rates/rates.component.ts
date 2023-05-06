@@ -89,7 +89,7 @@ export class RatesComponent {
         const res = await this.ratesService.save(rates);
         if (res === true) {
             this.isSuccessful = true;
-            setTimeout(() => this.router.navigateByUrl('admin/dashboard'), 3000);
+            setTimeout(() => this.router.navigateByUrl('admin/dashboard'), 1500);
         }
     }
 

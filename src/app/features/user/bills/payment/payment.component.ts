@@ -35,7 +35,7 @@ export class PaymentComponent {
             if (paymentDone) {
                 let newRoute = this.bill?.type ?? "";
 
-                setTimeout(() => this.router.navigate([newRoute]), 2000);
+                setTimeout(() => this.router.navigate([newRoute]), 1500);
             }
         });
         this.paymentForm = this.fb.group({
