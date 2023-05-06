@@ -1,10 +1,24 @@
 <app-page title="Telephone" subtitle="Information about your current telephone plans and usages">
 
-  <button class="change-plan">
-    <a routerLink="/telephone-subscribe">
-      Change Plan
-    </a>
-  </button>
+  <div>
+    <button class="change-plan">
+      <a routerLink="/telephone-subscribe">Change Plan</a>
+    </button>
+    <div class="serviceProviderCard">
+      <div class="ServiceProviderHeader">
+        <h2>{{telephoneOffer.name}} </h2>
+      </div>
+      <div class="offerContainer">
+        <h3>Offer Type</h3>
+        <ul>
+          <li>
+            {{telephoneOffer.offerType}}
+            <span> Cost Per Minute: {{telephoneOffer.costPerMinute}} </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <app-bills-table [columns]="billsColumns" [data]="data" [loading]="loading"></app-bills-table>
 </app-page>

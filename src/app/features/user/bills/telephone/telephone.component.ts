@@ -13,6 +13,7 @@ import { AuthService } from "../../../_global/auth/_common/services/auth.service
 export class TelephoneComponent {
     data: Array<Bill> = [];
     loading = false;
+    telephoneOffer: any;
 
     constructor(
         private billsService: BillsService,
@@ -27,6 +28,8 @@ export class TelephoneComponent {
                 this.router.navigate(["/telephone-subscribe"]);
                 return;
             }
+            this.telephoneOffer = user.profile.telephoneOffer;
+
             this.fetchData().then(() => {
                 this.loading = false;
             });
