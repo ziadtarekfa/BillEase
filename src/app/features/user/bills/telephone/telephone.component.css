@@ -1,0 +1,67 @@
+.change-plan {
+    border: none;
+    background-color: #4D47C3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.change-plan a {
+    color: white;
+}
+
+.serviceProviderCard {
+    width: 40%;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.ServiceProviderHeader {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    gap: 16px;
+}
+
+.offerContainer h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: grey;
+    background-color: #f4efff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 4px 20px;
+}
+
+.offerContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.offerContainer li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    transition: all ease-in-out .2s;
+    user-select: none;
+
+}
+
+.offerContainer li:last-child {
+    border-bottom: none;
+}
+
+.offerContainer li span {
+    font-size: 12px;
+    color: grey;
+}

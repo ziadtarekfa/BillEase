@@ -155,3 +155,22 @@ form span {
   color: red;
   margin-top: 5px;
 }
+
+.success-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.success-container img {
+  border-radius: 10px;
+}

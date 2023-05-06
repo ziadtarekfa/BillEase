@@ -4,7 +4,7 @@ import { BehaviorSubject } from "rxjs";
 import ServiceProvider from "../../../admin/telephone-config/service-providers/service-provider";
 import TelephoneConfigService from "../telephone/telephone-config.service";
 import { Router } from "@angular/router";
-import {AuthService} from "../../../_global/auth/_common/services/auth.service";
+import { AuthService } from "../../../_global/auth/_common/services/auth.service";
 
 @Component({
     selector: "app-telephone-subscribe",
@@ -45,6 +45,6 @@ export class TelephoneSubscribeComponent {
         this.isSubscriptionSuccessful = true;
         setTimeout(() => {
             this.router.navigate(["/telephone"]);
-        }, 2000);
+        }, 3000);
     }
 }
