@@ -6,7 +6,7 @@ export interface Rate {
 export type Rates = {
     water: Rate;
     electricity: Rate;
-    telephone: Rate;
+    telephone?: Rate;
 };
 
 export type RatesLookup = {

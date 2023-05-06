@@ -1,4 +1,8 @@
+
+
+
 .nav {
+
   background: var(--color-surface);
   color: var(--color-on-surface);
   height: 100%;
@@ -42,7 +46,7 @@
 }
 
 .nav li:last-child:hover {
-  color: var(--color-on-primary-container);
+  color: var(--nav-item-color);
 }
 
 .nav li:last-child:hover img {
@@ -72,7 +76,7 @@
 }
 
 .nav-item:hover {
-  background: var(--color-primary-container);
+  background: var(--nav-item-bg);
 }
 
 .nav-item.active img,
@@ -82,8 +86,8 @@
 
 .nav-item.active,
 .nav-item:active {
-  background: var(--color-primary-container);
-  color: var(--color-on-primary-container);
+  background: var(--nav-item-bg);
+  color: var(--nav-item-color);
 }
 
 
@@ -94,7 +98,10 @@
 
   .nav-item {
     padding: 16px;
+  }
 
+  .nav-item img {
+    margin-inline-start: 1.5px;
   }
 
   .nav-item span {

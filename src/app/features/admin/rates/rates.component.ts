@@ -27,20 +27,11 @@ export class RatesComponent {
         water: {
             title: "Water",
             icon: "assets/icons/water.svg",
-            unit: "m3",
+            unit: "liter",
             name: "water",
             unitCost: 2,
             overdueFees: 30,
             backgroundColor: '#EDF8FF'
-        },
-        telephone: {
-            title: "Telephone",
-            icon: "assets/icons/telephone.svg",
-            unit: "minutes",
-            name: "telephone",
-            unitCost: 1,
-            overdueFees: 20,
-            backgroundColor: '#FFF2F5'
         },
     };
 
@@ -66,8 +57,6 @@ export class RatesComponent {
         this.configs.electricity.overdueFees = data.electricity.overdueFees;
         this.configs.water.unitCost = data.water.unitCost;
         this.configs.water.overdueFees = data.water.overdueFees;
-        this.configs.telephone.unitCost = data.telephone.unitCost;
-        this.configs.telephone.overdueFees = data.telephone.overdueFees;
     }
 
     async onSave() {
@@ -79,10 +68,6 @@ export class RatesComponent {
             water: {
                 unitCost: this.configs.water.unitCost,
                 overdueFees: this.configs.water.overdueFees,
-            },
-            telephone: {
-                unitCost: this.configs.telephone.unitCost,
-                overdueFees: this.configs.telephone.overdueFees,
             },
         };
 

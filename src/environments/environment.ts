@@ -23,16 +23,23 @@ export const environment = {
                 path: "/electricity",
                 name: "Electricity",
                 icon: "assets/icons/lamp.svg",
+                color: "#f3783b",
+              background: "#ffeade",
             },
             {
                 path: "/telephone",
                 name: "Telephone",
                 icon: "assets/icons/telephone.svg",
+              color: "#d3314c",
+              background: "#ffeaed"
             },
             {
                 path: "/water",
                 name: "Water",
                 icon: "assets/icons/water.svg",
+              color: "#668ae3",
+              background: "#e7eeff"
+
             },
         ],
         [UserType.Admin]: [
@@ -44,12 +51,12 @@ export const environment = {
             {
                 path: "/admin/rates",
                 name: "Rates",
-                icon: "assets/icons/home.svg",
+                icon: "assets/icons/rates.svg",
             },
             {
                 path: "/admin/telephone-configuration",
                 name: "Telephone Configs",
-                icon: "assets/icons/home.svg",
+                icon: "assets/icons/telephone-admin.svg",
             },
         ],
     },

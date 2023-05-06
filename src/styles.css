@@ -1,6 +1,13 @@
 @import "./assets/styles/theme/dimensions.css";
 @import "./assets/styles/theme/colors.css";
 
+:root {
+  --nav-item-bg: var(--color-primary-container);
+  --nav-item-color: var(--color-on-primary-container);
+
+
+}
+
 a {
   text-decoration: none;
 }
