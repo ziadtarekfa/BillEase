@@ -24,7 +24,13 @@ export default class BillsService {
     columns: TableColumns = [
         { field: "id", title: "ID" },
         { field: "type", title: "Type" },
-        { field: "consumedUnitsFormatted", title: "Consumed Units" },
+        {
+            field: (row) =>
+                row["consumedUnits"] > 0
+                    ? row["consumedUnitsFormatted"]
+                    : "-",
+            title: "Consumed Units",
+        },
         {
             field: (row) =>
                 formatCurrency(this.paymentService.calculateFees(row as Bill)),
@@ -52,8 +58,8 @@ export default class BillsService {
                     )
                     .subscribe((res) => {
                         if (!res) resolve([]);
-                        const data = Object.entries(res).map(([id, value]) =>
-                            Bill.fromDTO({ ...value, id })
+                        const data = Object.entries(res ?? {}).map(
+                            ([id, value]) => Bill.fromDTO({ ...value, id })
                         );
                         resolve(data);
                     });

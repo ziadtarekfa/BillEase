@@ -42,8 +42,6 @@ export class RatesComponent {
             electricity_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
             water_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
             water_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            telephone_unit_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            telephone_overdue_cost: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
         })
         this.loading = true;
         this.fetchRates().then(() => (this.loading = false));

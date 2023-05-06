@@ -36,11 +36,6 @@ export class ServiceProviderInfoComponent {
     ];
     actions: TableActions = [
         {
-            type: "link",
-            link: (row: any) => `/admin/service-providers/${row.id}`,
-            text: "View",
-        },
-        {
             type: "button",
             onClick: (row: any) =>
                 this.deleteOffer(
