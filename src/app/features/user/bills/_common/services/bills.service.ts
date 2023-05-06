@@ -9,6 +9,7 @@ import { TableColumns } from "@components/table/table";
 import formatCurrency from "../../../../../../utils/currency-formatter";
 import RatesService from "../../../../_global/auth/_common/services/rates/rates.service";
 import PaymentService from "../../../../_global/auth/_common/services/payment/payment.service";
+import Customer from "../../../../admin/_common/models/user";
 
 @Injectable({
     providedIn: "root",
@@ -108,7 +109,11 @@ export default class BillsService {
         telephone: "tl",
     };
 
-    async add(userId: string, data: any): Promise<boolean> {
+    async add(
+        userId: string,
+        data: any,
+        customer?: Customer
+    ): Promise<boolean> {
         const idNumber = Math.floor(100000 + Math.random() * 900000).toString();
         const id = `${this.idPrefixes[data["type"]]}-${idNumber}`;
         const newBill = new Bill(
@@ -116,6 +121,11 @@ export default class BillsService {
             data["type"],
             false,
             data["consumedUnits"],
+            this.paymentService.calculateNewBillFees(
+                data["type"],
+                data["consumedUnits"],
+                customer
+            ),
             new Date(),
             new Date(data["dueDate"])
         );

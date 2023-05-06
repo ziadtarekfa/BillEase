@@ -4,6 +4,9 @@ import User from "../auth/_common/models/user";
 import { object } from "@angular/fire/database";
 import dateDifferenceCalculator from "../../../../utils/date-diff-calculator";
 import formatCurrency from "../../../../utils/currency-formatter";
+import RatesService from "../auth/_common/services/rates/rates.service";
+import BillsService from "../../user/bills/_common/services/bills.service";
+import PaymentService from "../auth/_common/services/payment/payment.service";
 
 @Component({
     selector: "app-bill-summary",
@@ -26,11 +29,16 @@ export class BillSummaryComponent implements OnChanges {
 
     sections: Array<Array<any>> = [];
 
+    constructor(
+        private billsService: BillsService,
+        public paymentService: PaymentService
+    ) {}
+
     ngOnChanges(changes: SimpleChanges) {
         this.bill = changes["bill"]?.currentValue ?? this.bill;
         this.sections = changes["user"]?.currentValue ?? this.user;
         const daysDiff = this.bill?.dueDate
-            ? dateDifferenceCalculator(this.bill?.dueDate, new Date())
+            ? dateDifferenceCalculator(new Date(), this.bill?.dueDate)
             : 0;
         this.sections = [
             [
@@ -78,15 +86,29 @@ export class BillSummaryComponent implements OnChanges {
                 : [
                       {
                           title: "Bill Fees",
-                          value: formatCurrency(this.bill?.billFees),
+                          value: formatCurrency(this.bill?.fees ?? 0),
                       },
                       {
                           title: "Overdue Fees",
-                          value: formatCurrency(this.bill?.overdueFees),
+                          value:
+                              daysDiff > 0
+                                  ? this.bill?.type !== undefined ||
+                                    this.bill?.type !== "telephone"
+                                      ? formatCurrency(
+                                            this.paymentService.rates?.[
+                                                this.bill?.type ?? "electricity"
+                                            ].overdueFees ?? 0
+                                        )
+                                      : formatCurrency(0)
+                                  : formatCurrency(0),
                       },
                       {
                           title: "Total",
-                          value: formatCurrency(this.bill?.totalFees),
+                          value: formatCurrency(
+                              this.paymentService.calculateFees(
+                                  this.bill as Bill
+                              )
+                          ),
                       },
                   ],
         ];

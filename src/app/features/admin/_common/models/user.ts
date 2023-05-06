@@ -6,6 +6,7 @@ export default class Customer {
         public name: string,
         public email: string,
         public phone: string,
+        public telephoneOffer: { [key: string]: any },
         public bills?: Array<Bill>
     ) {}
 
@@ -14,6 +15,13 @@ export default class Customer {
     }
 
     static fromDTO(dto: any) {
-        return new Customer(dto.id, dto.name, dto.email, dto.phone, dto.bills);
+        return new Customer(
+            dto.id,
+            dto.name,
+            dto.email,
+            dto.phone,
+            dto.telephoneOffer,
+            dto.bills
+        );
     }
 }

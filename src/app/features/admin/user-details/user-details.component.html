@@ -6,31 +6,35 @@
         <select id="create_bill_type" formControlName="billType">
           <option value="electricity">Electricity</option>
           <option value="water">Water</option>
-          <option value="telephone">Telephone</option>
+          <option value="telephone" *ngIf="customer?.telephoneOffer !== undefined">Telephone</option>
         </select>
-        <span *ngIf="addBillForm.controls['billType'].hasError('required') 
+        <span *ngIf="addBillForm.controls['billType'].hasError('required')
         && addBillForm.controls['billType'].touched"> Bill type is required </span>
       </div>
+      <div *ngIf="disableConsumedUnits; else enable"></div>
+      <ng-template #enable>
+        <div
+          class="form-item">
+          <label for="crate_units_consumed">Consumed Units</label>
+          <input id="crate_units_consumed" formControlName="unitsConsumed">
 
-      <div class="form-item">
-        <label for="crate_units_consumed">Consumed Units</label>
-        <input id="crate_units_consumed" formControlName="unitsConsumed">
-
-        <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('required') 
+          <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('required')
         && addBillForm.controls['unitsConsumed'].touched"> Units consumed is required </span>
 
-        <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('pattern') 
+          <span *ngIf="addBillForm.controls['unitsConsumed'].hasError('pattern')
         && addBillForm.controls['unitsConsumed'].touched"> Units consumed should be a positive number </span>
-      </div>
+        </div>
+      </ng-template>
+
 
       <div class="form-item">
         <label for="create_total_amount">Due Date</label>
         <input id="create_total_amount" formControlName="dueDate" type="date">
 
-        <span *ngIf="addBillForm.controls['dueDate'].hasError('required') 
+        <span *ngIf="addBillForm.controls['dueDate'].hasError('required')
         && addBillForm.controls['dueDate'].touched"> Due date is required </span>
 
-        <span *ngIf="addBillForm.controls['dueDate'].hasError('isPast') 
+        <span *ngIf="addBillForm.controls['dueDate'].hasError('isPast')
         && addBillForm.controls['dueDate'].touched"> Due date cannot be in the past or today</span>
       </div>
 
@@ -47,17 +51,17 @@
 <!-- DIVIDER -->
 
 <app-dialog (closeDialog)="onPaymentDialogClose()" title="Receive Payment"
-  [open]="selectedBill$.getValue() !== undefined">
+            [open]="selectedBill$.getValue() !== undefined">
   <div>
     <form [formGroup]="receivePaymentForm" (ngSubmit)="payBill()">
 
       <div class="form-item">
         <label for="payment_units_consumed">Total Fees</label>
         <input id="payment_units_consumed" [(ngModel)]="selectedTotalFees" formControlName="totalFees">
-        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('required') 
+        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('required')
           && receivePaymentForm.controls['totalFees'].touched"> Total fees is required </span>
 
-        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('pattern') 
+        <span *ngIf="receivePaymentForm.controls['totalFees'].hasError('pattern')
           && receivePaymentForm.controls['totalFees'].touched"> Total fees should be a positive number </span>
 
       </div>
@@ -74,17 +78,17 @@
 
   <div class="cards">
     <app-card [title]='"Total Bills"' [unitsUsed]="bills.length.toString()" [icon]='"../../assets/icons/bill.svg"'
-      [iconBackground]='"#C6DCEF"' />
+              [iconBackground]='"#C6DCEF"'/>
     <app-card [title]='"Pending Bills"' [unitsUsed]="pendingBills.length.toString()"
-      [icon]='"../../assets/icons/pending-bill.svg"' [iconBackground]='"#F73F3F"' />
+              [icon]='"../../assets/icons/pending-bill.svg"' [iconBackground]='"#F73F3F"'/>
   </div>
 
-  <app-user-card [customer]="customer" />
+  <app-user-card [customer]="customer"/>
 
   <button (click)="onCreateDialogOpen()">Add Bill</button>
 
   <div class="bill_table">
-    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions" />
+    <app-table [columns]="billsColumns" [data]="bills" [loading]="loading" [actions]="actions"/>
   </div>
 
 </app-page>

@@ -5,6 +5,7 @@ import Bill from "../../../../../user/bills/_common/services/bill";
 import { RatesLookup } from "../rates/rate";
 import dateDifferenceCalculator from "../../../../../../../utils/date-diff-calculator";
 import { environment } from "../../../../../../../environments/environment";
+import Customer from "../../../../../admin/_common/models/user";
 
 @Injectable({
     providedIn: "root",
@@ -19,13 +20,39 @@ export default class PaymentService {
         this.ratesService.get().then((rates) => (this.rates = rates));
     }
 
+    calculateNewBillFees(
+        billType: string,
+        consumedUnits: number,
+        customer?: Customer
+    ): number {
+        const rates: RatesLookup = this.rates as RatesLookup;
+        if (billType === "telephone") {
+            if (customer?.telephoneOffer?.["offerType"] === "prepaid")
+                return customer.telephoneOffer["unitsCost"] ?? 0;
+            else {
+                return (
+                    consumedUnits *
+                    (customer?.telephoneOffer["costPerMinute"] ?? 1)
+                );
+            }
+        } else {
+            return consumedUnits * rates[billType].unitCost;
+        }
+    }
+
     calculateFees(bill: Bill): number {
         const rates: RatesLookup = this.rates as RatesLookup;
-        const billFees = bill.consumedUnits * rates[bill.type].unitCost;
+        const billFees = isNaN(bill.fees) ? 0 : +bill.fees;
         const diff = bill.dueDate
             ? dateDifferenceCalculator(bill.dueDate, new Date())
             : 0;
-        return diff > 0 ? billFees + rates[bill.type].overdueFees : billFees;
+
+        return diff > 0
+            ? billFees +
+                  (bill.type === "telephone"
+                      ? 0
+                      : +rates[bill.type].overdueFees)
+            : billFees;
     }
 
     async pay(

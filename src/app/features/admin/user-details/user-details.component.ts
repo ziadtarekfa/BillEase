@@ -48,11 +48,17 @@ export class UserDetailsComponent {
     ) {
         this.addBillForm = this.fb.group({
             billType: ["", [Validators.required]],
-            unitsConsumed: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
-            dueDate: ["", [Validators.required, dateValidator]]
+            unitsConsumed: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
+            dueDate: ["", [Validators.required, dateValidator]],
         });
         this.receivePaymentForm = this.fb.group({
-            totalFees: ["", [Validators.required, Validators.pattern("^[0-9]*$")]]
+            totalFees: [
+                "",
+                [Validators.required, Validators.pattern("^[0-9]*$")],
+            ],
         });
 
         this.id = (this.route.params as BehaviorSubject<any>).getValue().userId;
@@ -72,20 +78,26 @@ export class UserDetailsComponent {
     async fetchData() {
         this.customer = await this.customersService.getById(this.id);
         this.bills = this.customer?.bills ?? [];
+        console.log({ c: this.customer });
         this.pendingBills = this.bills.filter((bill) => !bill.paid);
     }
 
     async addBill() {
         const newBill = {
-            type: this.addBillForm.get('billType')?.value,
-            consumedUnits: this.addBillForm.get('unitsConsumed')?.value,
-            dueDate: this.addBillForm.get('dueDate')?.value
-        }
-        const isCreated = await this.billsService.add(this.id, newBill);
+            type: this.addBillForm.get("billType")?.value,
+            consumedUnits: this.addBillForm.get("unitsConsumed")?.value,
+            dueDate: this.addBillForm.get("dueDate")?.value,
+        };
+        const isCreated = await this.billsService.add(
+            this.id,
+            newBill,
+            this.customer
+        );
         if (!isCreated) return;
 
         await this.fetchData();
         this.onCreateDialogClose();
+        this.addBillForm.reset();
     }
 
     async payBill() {
@@ -110,5 +122,16 @@ export class UserDetailsComponent {
 
     onPaymentDialogClose() {
         this.selectedBill$.next(undefined);
+    }
+
+    get disableConsumedUnits(): boolean {
+        const disable =
+            this.addBillForm.get("billType")?.value === "telephone" &&
+            this.customer?.telephoneOffer?.["offerType"] === "prepaid";
+
+        if (disable) {
+            this.addBillForm.get("unitsConsumed")?.setValue(0);
+        }
+        return disable;
     }
 }
