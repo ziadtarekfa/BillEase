@@ -1,11 +1,11 @@
 <app-page title="Bill Summary" [loading]="loading">
   <div class="container">
-    <app-bill-summary [bill]="bill" [user]="user" />
+    <app-bill-summary [bill]="bill" [user]="user"/>
     <section *ngIf="bill?.paid === false" class="card-info">
-      <div [class]="successfulPayment$.getValue()  ? 'success-container success' : 'success-container' ">
+      <div [class]=" successfulPayment$.getValue()  ? 'success-container success' : 'success-container' ">
         <img src="assets/animations/success.gif" alt="success">
         <h2>
-          <span>Payment Successful!</span>
+          <span style="color: black">Payment Successful!</span>
           {{" " }}
           <span>Thank you for using our service.</span>
         </h2>
@@ -20,7 +20,7 @@
         <div class="form-item" id="cardHolderNameField">
           <label for="cardHolderName">Card Holder Name</label>
           <input type="text" id="cardHolderName" placeholder="Your name here" formControlName="cardHolderName">
-          <span *ngIf="paymentForm.controls['cardHolderName'].hasError('required') 
+          <span *ngIf="paymentForm.controls['cardHolderName'].hasError('required')
             && paymentForm.controls['cardHolderName'].touched">Card
             holder is
             required</span>

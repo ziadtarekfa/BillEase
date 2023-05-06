@@ -86,7 +86,6 @@
 .success-container {
   position: absolute;
   background-color: var(--color-surface);
-  inset: 0;
   padding: 32px;
   text-align: center;
   width: 0;
