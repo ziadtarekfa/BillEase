@@ -1,0 +1,11 @@
+.change-plan {
+    border: none;
+    background-color: #4D47C3;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.change-plan a {
+    color: white;
+}
