@@ -91,18 +91,14 @@ export class AuthService {
 
     async logout(password: string): Promise<boolean> {
         const currentUser = await this.fireAuth.currentUser;
-        try {
-            const res = await this.fireAuth.signInWithEmailAndPassword(
-                currentUser?.email ?? "",
-                password
-            );
-            if (res.user?.email === currentUser?.email) {
-                this.fireAuth.signOut();
-                this.router.navigate(["/signin"]);
-                return true;
-            } else return false;
-        } catch (e) {
-            return false;
-        }
+        const res = await this.fireAuth.signInWithEmailAndPassword(
+            currentUser?.email ?? "",
+            password
+        );
+        if (res.user?.email === currentUser?.email) {
+            this.fireAuth.signOut();
+            this.router.navigate(["/signin"]);
+            return true;
+        } else return false;
     }
 }

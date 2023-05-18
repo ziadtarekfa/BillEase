@@ -14,15 +14,17 @@ export class NavbarComponent {
     isLogoutConfirm: boolean = false;
     password: string = "";
     loading: boolean = false;
-    error: string =  "";
+    error: string = "";
+
     constructor(private authService: AuthService, private router: Router) {}
 
     async logout() {
-      this.loading = true;
-        const isSuccess = await this.authService.logout(this.password);
-this.loading = false;
-        if (!isSuccess) {
-          this.error = "Password Doesn't Match";
+        try {
+            this.loading = true;
+            const isSuccess = await this.authService.logout(this.password);
+            this.loading = false;
+        } catch (e) {
+            this.error = "Password Doesn't Match";
         }
     }
 

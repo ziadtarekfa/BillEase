@@ -5,7 +5,11 @@
     <input id="cost" [(ngModel)]="password">
     <span style="color: red" *ngIf="error.length > 0">{{error}}</span>
   </div>
-  <div style="display: flex; justify-content: flex-end">
+  <div style="display: flex; justify-content: flex-end; gap: 8px">
+    <button class="button"
+            style="background: #fff !important; color: var(--color-primary); border: 1px solid var(--color-primary)"
+            (click)="closeDialog()">Cancel
+    </button>
     <button class="button" (click)="logout()">Logout</button>
   </div>
 </app-dialog>
