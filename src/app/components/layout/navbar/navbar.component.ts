@@ -9,10 +9,19 @@ import NavRoute from "@components/layout/navbar/nav-route";
 })
 export class NavbarComponent {
     @Input() navRoutes: Array<NavRoute> = [];
+    isLogoutConfirm: boolean = false;
 
     constructor(private authService: AuthService) {}
 
     logout() {
         this.authService.logout();
+    }
+
+    closeDialog() {
+        this.isLogoutConfirm = false;
+    }
+
+    openDialog() {
+        this.isLogoutConfirm = true;
     }
 }
