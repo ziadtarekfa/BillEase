@@ -1,6 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { AuthService } from "../../../features/_global/auth/_common/services/auth.service";
 import NavRoute from "@components/layout/navbar/nav-route";
+import { FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-nav",
@@ -10,15 +12,23 @@ import NavRoute from "@components/layout/navbar/nav-route";
 export class NavbarComponent {
     @Input() navRoutes: Array<NavRoute> = [];
     isLogoutConfirm: boolean = false;
+    password: string = "";
+    loading: boolean = false;
+    error: string =  "";
+    constructor(private authService: AuthService, private router: Router) {}
 
-    constructor(private authService: AuthService) {}
-
-    logout() {
-        this.authService.logout();
+    async logout() {
+      this.loading = true;
+        const isSuccess = await this.authService.logout(this.password);
+this.loading = false;
+        if (!isSuccess) {
+          this.error = "Password Doesn't Match";
+        }
     }
 
     closeDialog() {
         this.isLogoutConfirm = false;
+        this.router.navigate([""]);
     }
 
     openDialog() {

@@ -1,5 +1,10 @@
 <app-dialog [open]="isLogoutConfirm" (closeDialog)="closeDialog()">
   <h1>Are you sure want to logout?</h1>
+  <div class="form-item">
+    <label for="cost">Password</label>
+    <input id="cost" [(ngModel)]="password">
+    <span style="color: red" *ngIf="error.length > 0">{{error}}</span>
+  </div>
   <div style="display: flex; justify-content: flex-end">
     <button class="button" (click)="logout()">Logout</button>
   </div>

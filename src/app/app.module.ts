@@ -41,7 +41,7 @@ import { UserCardComponent } from "./features/admin/user-card/user-card.componen
 import { ServiceProvidersComponent } from "./features/admin/telephone-config/service-providers/service-providers.component";
 import { ServiceProviderInfoComponent } from "./features/admin/telephone-config/service-provider-info/service-provider-info.component";
 import { TelephoneSubscribeComponent } from "./features/user/bills/telephon-subscribe/telephone-subscribe.component";
-import { PasswordComponent } from './features/user/password/password.component';
+import { PasswordComponent } from "./features/user/password/password.component";
 
 @NgModule({
     declarations: [
@@ -110,6 +110,10 @@ import { PasswordComponent } from './features/user/password/password.component';
             {
                 path: "admin/service-providers/:id",
                 component: ServiceProviderInfoComponent,
+            },
+            {
+                path: "resetpassword",
+                component: PasswordComponent,
             },
         ]),
         FormsModule,
