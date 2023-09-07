@@ -1,27 +1,44 @@
 # BillEase
+## Introduction
+Welcome to the Billease Invoice System! This system is designed to help users manage their water, telephone, and electricity bills efficiently. It also includes an admin module to oversee and manage user accounts and billing information.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Whether you are an individual looking to keep track of your utility bills or an administrator responsible for handling multiple users' accounts, this system simplifies the billing process and provides a user-friendly interface.
 
-## Development server
+## Tech Stack
+- Angular
+- Firebase Realtime database
+- Firebase Authentication
+- CSS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
+### User Module
+- Billing Information: Allows users to view their water, telephone, and electricity bill details.
+- Payment Tracking: Users can pay their bill and track which bills have been settled.
+- Telephone Offers: Subscribe to different telephone offers offered by providers.
+- Rates: View the cost of water and electricty and at which rate is the user charged.
+- Search Bill: Users are able to search for a specific bill in their history.
 
-## Code scaffolding
+### Admin Module
+- Billing Oversight: Admins can view pending and paid bills for each user, receive payments for offline users, and add bills for specific users.
+- System Configuration: Admins can alter rates for water and electricity, as well as add and delete offers for telephone providers.
+- View Total Users: Admins can view the total number of users in the system.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
+To run the Invoice System on your local machine, follow these steps:
 
-## Build
+1. Clone the Repository:
+    ```
+    git clone https://github.com/ziadtarekfa/BillEase.git
+    ```
+2. Install Dependencies using `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Start application using `npm run start`
 
-## Running unit tests
+4. To access the **admin** module use the following email `admin@admin.com` and password `admin@admin.com`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. To access the **user** module use the following email `ziad123@gmail.com` and password `hello123`
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contributing
+This project was made possible with contributions from the following individuals:
+- Hazem Muhammad
+- Ziad Tarek
